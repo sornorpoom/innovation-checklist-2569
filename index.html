@@ -1,0 +1,2695 @@
+<!DOCTYPE html>
+<html lang="th" class="size-medium">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบประเมินตนเอง (Checklist) นวัตกรรมการศึกษา ปี 2569</title>
+  
+  <!-- Google Fonts: Sarabun & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Print CSS for PDF Export via window.print() -->
+  <style id="print-styles">
+    @media print {
+      /* Hide everything except the print report */
+      body > *:not(#print-report) { display: none !important; }
+      #print-report { display: block !important; }
+
+      @page {
+        size: A4 portrait;
+        margin: 15mm 15mm 15mm 15mm;
+      }
+
+      #print-report {
+        font-family: 'Sarabun', 'TH Sarabun New', 'Angsana New', Arial, sans-serif;
+        font-size: 13pt;
+        color: #111;
+        line-height: 1.6;
+        width: 100%;
+        background: white;
+      }
+
+      #print-report .pr-header {
+        background: #0f4c81 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: white !important;
+        padding: 10px 14px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      #print-report .pr-header h1 { font-size: 14pt; margin: 0 0 3px 0; font-weight: 700; }
+      #print-report .pr-header p  { font-size: 10pt; margin: 0; opacity: 0.9; }
+
+      #print-report .pr-info-box {
+        border: 1px solid #bbb;
+        background: #f9f9f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 10px 14px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        font-size: 11pt;
+      }
+      #print-report .pr-info-row { display: flex; gap: 20px; margin-bottom: 4px; }
+      #print-report .pr-info-label { font-weight: 700; min-width: 120px; white-space: nowrap; }
+      #print-report .pr-info-value { flex: 1; }
+
+      #print-report .pr-score-box {
+        display: flex;
+        border: 2px solid #0f4c81;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #print-report .pr-score-cell {
+        flex: 1;
+        text-align: center;
+        padding: 8px 4px;
+        border-right: 1px solid #0f4c81;
+        background: #eef2f7 !important;
+      }
+      #print-report .pr-score-cell:last-child { border-right: none; }
+      #print-report .pr-score-num { font-size: 16pt; font-weight: 700; color: #0f4c81; }
+      #print-report .pr-score-label { font-size: 9pt; color: #555; margin-top: 2px; }
+
+      #print-report .pr-status-pass {
+        background: #d4edda !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: #155724;
+        font-weight: 700;
+        text-align: center;
+        padding: 6px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 10.5pt;
+      }
+      #print-report .pr-status-fail {
+        background: #f8d7da !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: #721c24;
+        font-weight: 700;
+        text-align: center;
+        padding: 6px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 10.5pt;
+      }
+
+      #print-report .pr-section-title {
+        font-size: 12pt;
+        font-weight: 700;
+        color: #0f4c81;
+        border-bottom: 2px solid #0f4c81;
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+      }
+
+      #print-report table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10.5pt;
+        margin-bottom: 6px;
+      }
+      #print-report table thead tr {
+        background: #d8e4f0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #print-report table th {
+        padding: 6px 8px;
+        border: 1px solid #aaa;
+        font-weight: 700;
+        text-align: left;
+      }
+      #print-report table td {
+        padding: 5px 8px;
+        border: 1px solid #ccc;
+        vertical-align: top;
+      }
+      #print-report table tr.sub-header td {
+        background: #eaf0fb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-weight: 700;
+        color: #0f4c81;
+      }
+      #print-report table tr.shade td {
+        background: #f9fbff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #print-report table tr.summary-row td {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-weight: 700;
+      }
+      #print-report table tr.summary-total td {
+        background: #dce9f8 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-weight: 700;
+        font-size: 12pt;
+        color: #0f4c81;
+      }
+      #print-report .pr-sig {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        font-size: 10.5pt;
+      }
+      #print-report .pr-sig-block { text-align: center; width: 45%; }
+      #print-report .pr-sig-line { border-bottom: 1px solid #555; margin: 0 10px 4px; height: 30px; }
+      #print-report .pr-sig-label { font-size: 9pt; color: #555; }
+
+      /* Recommendations Section */
+      #print-report .pr-rec-box {
+        border: 1px solid #0f4c81;
+        border-radius: 6px;
+        margin-top: 14px;
+        overflow: hidden;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #print-report .pr-rec-header {
+        background: #1a5e9a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: white;
+        font-weight: 700;
+        font-size: 11pt;
+        padding: 7px 12px;
+      }
+      #print-report .pr-rec-overall {
+        background: #f0f6ff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 8px 12px;
+        font-size: 10.5pt;
+        border-bottom: 1px solid #c8d8ef;
+        line-height: 1.65;
+      }
+      #print-report .pr-rec-section {
+        padding: 6px 12px 6px 12px;
+        border-bottom: 1px solid #e0e8f5;
+      }
+      #print-report .pr-rec-section:last-child { border-bottom: none; }
+      #print-report .pr-rec-section-title {
+        font-weight: 700;
+        font-size: 10pt;
+        color: #0f4c81;
+        margin-bottom: 3px;
+      }
+      #print-report .pr-rec-section ul {
+        margin: 2px 0 2px 0;
+        padding-left: 18px;
+        font-size: 10pt;
+        line-height: 1.6;
+      }
+      #print-report .pr-rec-section ul li { margin-bottom: 3px; }
+    }
+  </style>
+
+  <style>
+    /* ==========================================================================
+       1. Core Styling & Design Tokens (CSS Variables)
+       ========================================================================== */
+    :root {
+      /* Theme transition transition-duration */
+      --transition-speed: 0.3s;
+      --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Light Theme (โทนสว่าง - Royal Blue & Teal) */
+    body.theme-light {
+      --bg-color: #f4f6fc;
+      --card-bg: #ffffff;
+      --card-bg-rgb: 255, 255, 255;
+      --text-color: #1e293b;
+      --text-light: #64748b;
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-rgb: 37, 99, 235;
+      --secondary-color: #0f766e;
+      --accent-color: #3b82f6;
+      --accent-bg: #eff6ff;
+      --border-color: #e2e8f0;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --danger-color: #ef4444;
+      --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      --header-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Warm Theme (โทนอบอุ่น - Cream & Warm Amber/Beige) */
+    body.theme-warm {
+      --bg-color: #fdfbf7;
+      --card-bg: #ffffff;
+      --card-bg-rgb: 255, 255, 255;
+      --text-color: #453229;
+      --text-light: #8c7365;
+      --primary-color: #b45309;
+      --primary-hover: #92400e;
+      --primary-rgb: 180, 83, 9;
+      --secondary-color: #7c2d12;
+      --accent-color: #d97706;
+      --accent-bg: #fffbeb;
+      --border-color: #ebdcb2;
+      --shadow: 0 10px 15px -3px rgba(139, 92, 26, 0.04), 0 4px 6px -4px rgba(139, 92, 26, 0.04);
+      --card-shadow: 0 20px 25px -5px rgba(139, 92, 26, 0.06), 0 8px 10px -6px rgba(139, 92, 26, 0.06);
+      --success-color: #16a34a;
+      --warning-color: #d97706;
+      --danger-color: #dc2626;
+      --gradient-primary: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      --header-bg: rgba(253, 251, 247, 0.9);
+    }
+
+    /* Dark Theme (โทนมืด - Charcoal & Emerald Green) */
+    body.theme-dark {
+      --bg-color: #0b0f19;
+      --card-bg: #151f32;
+      --card-bg-rgb: 21, 31, 50;
+      --text-color: #f1f5f9;
+      --text-light: #94a3b8;
+      --primary-color: #10b981;
+      --primary-hover: #059669;
+      --primary-rgb: 16, 185, 129;
+      --secondary-color: #0d9488;
+      --accent-color: #34d399;
+      --accent-bg: #064e3b;
+      --border-color: #1e293b;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+      --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      --success-color: #34d399;
+      --warning-color: #fbbf24;
+      --danger-color: #f87171;
+      --gradient-primary: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      --header-bg: rgba(21, 31, 50, 0.85);
+    }
+
+    /* Font Size Settings on <html> class levels */
+    html.size-small { font-size: 14px; }
+    html.size-medium { font-size: 16px; }
+    html.size-large { font-size: 19px; }
+
+    /* General Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color var(--transition-speed) var(--transition-ease),
+                  color var(--transition-speed) var(--transition-ease);
+      padding-top: 80px; /* Header Space */
+      padding-bottom: 60px; /* Footer Space */
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-color);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-light);
+    }
+
+    /* Container Utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       2. Layout Elements: Header & Controls
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background-color: var(--header-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      transition: background-color var(--transition-speed) var(--transition-ease),
+                  border-color var(--transition-speed) var(--transition-ease);
+    }
+
+    header .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 6px -1px rgba(var(--primary-rgb), 0.3);
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      display: block;
+    }
+
+    /* Controls: Theme, Font Size, Refresh */
+    .controls-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .control-group {
+      display: flex;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .control-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-color);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s var(--transition-ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .control-btn:hover {
+      background-color: var(--border-color);
+    }
+
+    .control-btn.active {
+      background-color: var(--card-bg);
+      color: var(--primary-color);
+      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s var(--transition-ease);
+      font-size: 0.95rem;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--border-color);
+      transform: translateY(-1px);
+    }
+
+    .icon-btn:active {
+      transform: translateY(0);
+    }
+
+    .spin-animate {
+      animation: spin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ==========================================================================
+       3. Main Layout Components
+       ========================================================================== */
+    .app-grid {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 968px) {
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform var(--transition-speed) var(--transition-ease),
+                  box-shadow var(--transition-speed) var(--transition-ease),
+                  background-color var(--transition-speed) var(--transition-ease),
+                  border-color var(--transition-speed) var(--transition-ease);
+    }
+
+    .card:hover {
+      box-shadow: var(--card-shadow);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    @media (max-width: 968px) {
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    /* ==========================================================================
+       4. Input Fields & Form Styling
+       ========================================================================== */
+    .form-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s var(--transition-ease);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+      background-color: var(--card-bg);
+    }
+    
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+
+    /* ==========================================================================
+       5. Dashboard & Tab Navigation
+       ========================================================================== */
+    /* Score display & Radial Progress */
+    .score-summary-box {
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      color: white;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px -5px rgba(var(--primary-rgb), 0.3);
+    }
+
+    .score-summary-box::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .radial-progress-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 0.75rem;
+    }
+
+    .radial-progress-svg {
+      transform: rotate(-90deg);
+    }
+
+    .progress-circle-bg {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.15);
+      stroke-width: 8;
+    }
+
+    .progress-circle-val {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.6s ease;
+    }
+
+    .radial-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .score-desc {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Badge indicators */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .status-badge.pass {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: var(--success-color);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .status-badge.fail {
+      background-color: rgba(245, 158, 11, 0.15);
+      color: var(--warning-color);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    /* Tab navigation buttons */
+    .tab-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-color);
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s var(--transition-ease);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tab-btn:hover {
+      background-color: var(--bg-color);
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-bg);
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .tab-btn-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      background-color: var(--card-bg);
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      color: var(--text-light);
+    }
+
+    .tab-btn.active .tab-btn-badge {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Tab Content management */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s var(--transition-ease);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       6. Section Checklists Styling
+       ========================================================================== */
+    .section-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: var(--primary-color);
+    }
+
+    .section-score-label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--primary-color);
+      background-color: var(--accent-bg);
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem 0;
+      color: var(--text-color);
+      border-left: 4px solid var(--primary-color);
+      padding-left: 8px;
+    }
+
+    /* Checklist Item Container */
+    .checklist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.2s var(--transition-ease);
+      user-select: none;
+    }
+
+    .checklist-item:hover {
+      border-color: var(--primary-color);
+      background-color: var(--card-bg);
+      transform: translateX(4px);
+    }
+
+    /* Custom Checkbox Design */
+    .custom-checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.2s var(--transition-ease);
+    }
+
+    .checklist-item.checked {
+      background-color: var(--accent-bg);
+      border-color: rgba(var(--primary-rgb), 0.3);
+    }
+
+    .checklist-item.checked .custom-checkbox {
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+    }
+
+    .checklist-text {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-color);
+      transition: color 0.2s var(--transition-ease);
+    }
+
+    .checklist-item.checked .checklist-text {
+      font-weight: 500;
+    }
+
+    /* Category scoring summary inside section */
+    .category-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .category-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .category-score {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* Category progress bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bg-color);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--gradient-primary);
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.4s var(--transition-ease);
+    }
+
+    /* Highlight Banner Info */
+    .alert-banner {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .alert-banner.info {
+      background-color: rgba(37, 99, 235, 0.08);
+      color: var(--primary-color);
+      border: 1px solid rgba(37, 99, 235, 0.15);
+    }
+    
+    .alert-banner.warning {
+      background-color: rgba(245, 158, 11, 0.08);
+      color: var(--warning-color);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+    }
+
+    /* ==========================================================================
+       7. Action Buttons
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s var(--transition-ease);
+      border: none;
+      outline: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(var(--primary-rgb), 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.3);
+    }
+
+    .btn-danger-outline {
+      background-color: transparent;
+      border: 1px solid var(--danger-color);
+      color: var(--danger-color);
+    }
+
+    .btn-danger-outline:hover {
+      background-color: rgba(239, 68, 68, 0.08);
+    }
+
+    .btn-danger {
+      background-color: var(--danger-color);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background-color: #dc2626;
+    }
+
+    .btn-secondary {
+      background-color: var(--border-color);
+      color: var(--text-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--text-light);
+      color: white;
+    }
+
+    /* ==========================================================================
+       8. Dialog Modal for Confirmation (Reset & PDF Export)
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--transition-ease);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      max-width: 480px;
+      width: 100%;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      transform: scale(0.9);
+      transition: transform 0.3s var(--transition-ease);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--danger-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Loading Overlay for PDF Generation */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(var(--card-bg-rgb), 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 5px solid var(--border-color);
+      border-bottom-color: var(--primary-color);
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes rotation {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    /* ==========================================================================
+       9. Hidden Report Template for PDF Printing (Off-screen Rendering)
+       ========================================================================== */
+    #pdf-report-template {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 210mm;
+      min-height: 297mm;
+      background-color: white;
+      color: #111111;
+      font-family: 'Sarabun', sans-serif;
+      padding: 20mm 15mm;
+      box-sizing: border-box;
+      z-index: -1000;
+    }
+
+    .pdf-header {
+      text-align: center;
+      border-bottom: 2px double #111;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .pdf-title {
+      font-size: 18pt;
+      font-weight: bold;
+      line-height: 1.3;
+      margin-bottom: 5px;
+      color: #0f4c81;
+    }
+
+    .pdf-subtitle {
+      font-size: 13pt;
+      color: #333;
+    }
+
+    .pdf-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 12pt;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .pdf-info-item {
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .pdf-info-item span.label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .pdf-score-box {
+      border: 2px solid #0f4c81;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      text-align: center;
+      background-color: #f7f9fc;
+    }
+
+    .pdf-score-card {
+      border-right: 1px solid #ddd;
+    }
+
+    .pdf-score-card:last-child {
+      border-right: none;
+    }
+
+    .pdf-score-card .val {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #0f4c81;
+    }
+
+    .pdf-score-card .lbl {
+      font-size: 10pt;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .pdf-status-banner {
+      grid-column: span 3;
+      margin-top: 10px;
+      padding: 8px;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 11pt;
+      text-align: center;
+    }
+
+    .pdf-status-banner.pass {
+      background-color: #e2f0d9;
+      color: #385723;
+      border: 1px solid #c5e0b4;
+    }
+
+    .pdf-status-banner.fail {
+      background-color: #fce4d6;
+      color: #c65911;
+      border: 1px solid #f8cbad;
+    }
+
+    .pdf-section-title {
+      font-size: 13pt;
+      font-weight: bold;
+      margin: 15px 0 10px 0;
+      border-left: 5px solid #0f4c81;
+      padding-left: 8px;
+      color: #0f4c81;
+    }
+
+    .pdf-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11pt;
+      margin-bottom: 20px;
+    }
+
+    .pdf-table th, .pdf-table td {
+      border: 1px solid #888;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    .pdf-table th {
+      background-color: #eef2f7;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    .pdf-table td.center {
+      text-align: center;
+    }
+
+    .pdf-table td.right {
+      text-align: right;
+    }
+
+    .pdf-signature-section {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      text-align: center;
+      font-size: 11pt;
+    }
+
+    .pdf-sig-box {
+      padding-top: 20px;
+    }
+
+    .pdf-line {
+      margin-bottom: 8px;
+    }
+
+    /* Print media utility override */
+    @media print {
+      body { background-color: white; color: black; }
+      header, .app-grid, .modal-overlay, footer { display: none !important; }
+      #pdf-report-template { 
+        display: block !important; 
+        position: static !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="theme-light">
+
+  <!-- ==========================================================================
+       1. Top Fixed Navigation Bar
+       ========================================================================== */ -->
+  <header>
+    <div class="container header-container">
+      <div class="brand-section">
+        <div class="brand-logo">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <div>
+          <span class="brand-title">แบบประเมินตนเอง (Checklist)</span>
+          <span class="brand-subtitle">เพื่อเตรียมความพร้อมรับการประเมินนวัตกรรมการศึกษา ปี 2569</span>
+        </div>
+      </div>
+      
+      <div class="controls-wrapper">
+        <!-- Font Size Controls -->
+        <div class="control-group">
+          <button class="control-btn" id="font-sm" onclick="setFontSize('small')" title="ขนาดอักษรเล็ก">ก-</button>
+          <button class="control-btn active" id="font-md" onclick="setFontSize('medium')" title="ขนาดอักษรกลาง">ก</button>
+          <button class="control-btn" id="font-lg" onclick="setFontSize('large')" title="ขนาดอักษรใหญ่">ก+</button>
+        </div>
+
+        <!-- Theme Tone Controls -->
+        <div class="control-group">
+          <button class="control-btn active" id="theme-light-btn" onclick="setTheme('light')" title="ธีมสว่าง">
+            <i class="fas fa-sun"></i> สว่าง
+          </button>
+          <button class="control-btn" id="theme-warm-btn" onclick="setTheme('warm')" title="ธีมบ่มอุ่น">
+            <i class="fas fa-coffee"></i> อบอุ่น
+          </button>
+          <button class="control-btn" id="theme-dark-btn" onclick="setTheme('dark')" title="ธีมมืด">
+            <i class="fas fa-moon"></i> มืด
+          </button>
+        </div>
+
+        <!-- Refresh Button -->
+        <button class="icon-btn" id="refresh-btn" onclick="triggerRefresh()" title="รีเฟรชข้อมูลและสถานะการประเมิน">
+          <i class="fas fa-sync-alt" id="refresh-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Intro Description Banner
+       ========================================================================== -->
+  <div style="background: linear-gradient(135deg, var(--primary-color) 0%, #1565c0 60%, #0d47a1 100%); color: white; padding: 0;">
+    <div class="container" style="padding-top: 1.1rem; padding-bottom: 1.1rem;">
+      <div style="display: flex; gap: 1.25rem; align-items: flex-start; flex-wrap: wrap;">
+        <!-- Icon badge -->
+        <div style="flex-shrink:0; width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-top:2px;">
+          📋
+        </div>
+        <!-- Main description -->
+        <div style="flex:1; min-width:260px;">
+          <div style="font-size:1.05rem; font-weight:700; margin-bottom:0.35rem; letter-spacing:0.01em;">
+            วัตถุประสงค์และวิธีใช้งานแบบประเมินตนเอง
+          </div>
+          <div style="font-size:0.92rem; line-height:1.65; opacity:0.93;">
+            แบบประเมินตนเองฉบับนี้จัดทำขึ้นเพื่อช่วยให้ <strong>ครูผู้สอน ผู้บริหาร และศึกษานิเทศก์</strong>
+            ตรวจสอบความพร้อมก่อนเข้ารับการประเมินนวัตกรรมการศึกษา ประจำปีงบประมาณ พ.ศ. 2569 โดยมีโครงสร้าง <strong>3 ส่วน</strong> ดังนี้
+          </div>
+          <!-- Step pills -->
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:0.65rem;">
+            <span style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:3px 12px; font-size:0.82rem; font-weight:600;">
+              📍 ส่วนที่ 1 — เกณฑ์เบื้องต้น
+            </span>
+            <span style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:3px 12px; font-size:0.82rem; font-weight:600;">
+              📚 ส่วนที่ 2 — เล่มรายงาน (60 คะแนน)
+            </span>
+            <span style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:3px 12px; font-size:0.82rem; font-weight:600;">
+              🏛️ ส่วนที่ 3 — นิทรรศการ (40 คะแนน)
+            </span>
+          </div>
+        </div>
+        <!-- Tips column -->
+        <div style="flex-shrink:0; background:rgba(255,255,255,0.13); border-radius:10px; padding:0.65rem 1rem; font-size:0.85rem; line-height:1.7; min-width:220px; max-width:300px;">
+          <div style="font-weight:700; margin-bottom:0.2rem; font-size:0.88rem;">ℹ️ วิธีใช้งาน</div>
+          <div>✔️ กรอกข้อมูลในคอลัมน์ซ้ายก่อน</div>
+          <div>✔️ ตรวจเช็ค Checklist ทีละรายการ</div>
+          <div>✔️ ดูผลคะแนนสดแบบ ระยะนำทาง (แฟนด้านซ้าย)</div>
+          <div>✔️ ส่งออกรายงาน PDF พร้อมข้อเสนอแนะ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. Main Content Grid (Responsive Layout)
+       ========================================================================== -->
+  <main class="container">
+    <div class="app-grid">
+
+      
+      <!-- Left Column: User details, Dashboard & Nav tabs -->
+      <section class="sidebar">
+        
+        <!-- User Personal Details (Optional) -->
+        <div class="card">
+          <div class="form-title">
+            <i class="fas fa-user-edit text-primary"></i> ข้อมูลผู้ขอรับการประเมิน
+          </div>
+          <div class="input-group">
+            <label for="user-name">ชื่อ - นามสกุล</label>
+            <input type="text" id="user-name" class="form-control" placeholder="ระบุเพื่อพิมพ์ใส่หัวรายงาน (ไม่บังคับ)">
+          </div>
+          <div class="input-group">
+            <label for="user-school">โรงเรียน</label>
+            <input type="text" id="user-school" class="form-control" placeholder="ระบุเพื่อพิมพ์ใส่หัวรายงาน (ไม่บังคับ)">
+          </div>
+          <div class="input-group">
+            <label for="user-dept">ประเภทนวัตกรรมด้านการจัดการเรียนรู้</label>
+            <select id="user-dept" class="form-control">
+              <option value="">-- เลือกประเภทนวัตกรรม (ไม่บังคับ) --</option>
+              <option value="1) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ภาษาไทย">1) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ภาษาไทย</option>
+              <option value="2) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้คณิตศาสตร์">2) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้คณิตศาสตร์</option>
+              <option value="3) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้วิทยาศาสตร์และเทคโนโลยี">3) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้วิทยาศาสตร์และเทคโนโลยี</option>
+              <option value="4) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม">4) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม</option>
+              <option value="5) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา">5) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา</option>
+              <option value="6) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ศิลปะ">6) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ศิลปะ</option>
+              <option value="7) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้การงานอาชีพ">7) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้การงานอาชีพ</option>
+              <option value="8) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ">8) นวัตกรรมการจัดการเรียนรู้ กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ</option>
+              <option value="9) นวัตกรรมการจัดการเรียนรู้ กิจกรรมพัฒนาผู้เรียน">9) นวัตกรรมการจัดการเรียนรู้ กิจกรรมพัฒนาผู้เรียน</option>
+              <option value="10) นวัตกรรมการจัดการเรียนรู้ การศึกษาระดับปฐมวัย">10) นวัตกรรมการจัดการเรียนรู้ การศึกษาระดับปฐมวัย</option>
+              <option value="11) นวัตกรรมการจัดการเรียนรู้ การศึกษาสำหรับเด็กที่มีความต้องการพิเศษ">11) นวัตกรรมการจัดการเรียนรู้ การศึกษาสำหรับเด็กที่มีความต้องการพิเศษ</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dashboard Summary Score Circle -->
+        <div class="card" style="padding-bottom: 1rem;">
+          <div class="score-summary-box">
+            <div class="radial-progress-wrapper">
+              <svg class="radial-progress-svg" width="120" height="120">
+                <circle class="progress-circle-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="progress-circle-val" id="radial-bar" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+              </svg>
+              <div class="radial-text" id="radial-score-val">0</div>
+            </div>
+            <div class="score-desc">คะแนนการประเมินรวมสุทธิ</div>
+            <div style="font-size: 0.75rem; opacity: 0.75; margin-top: 2px;">(เต็ม 100 คะแนน)</div>
+          </div>
+
+          <!-- Readiness Level 1 Badge -->
+          <div id="readiness-badge" class="status-badge fail">
+            <i class="fas fa-clock"></i> รอการประเมินด่านเบื้องต้น
+          </div>
+
+          <!-- Section Navigation Tabs -->
+          <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('dashboard-tab', this)">
+              <span><i class="fas fa-chart-pie"></i> ภาพรวมผลประเมิน</span>
+              <span class="tab-btn-badge" id="badge-ov">0%</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('part1-tab', this)">
+              <span><i class="fas fa-tasks"></i> ส่วนที่ 1: ตรวจความพร้อม</span>
+              <span class="tab-btn-badge" id="badge-p1">0/19</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('part2-tab', this)">
+              <span><i class="fas fa-file-alt"></i> ส่วนที่ 2: เล่มรายงาน (60)</span>
+              <span class="tab-btn-badge" id="badge-p2">0</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('part3-tab', this)">
+              <span><i class="fas fa-tv"></i> ส่วนที่ 3: นิทรรศการ (40)</span>
+              <span class="tab-btn-badge" id="badge-p3">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Operations Actions (Reset / PDF) -->
+        <div class="card" style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn btn-primary" onclick="openPdfConfirmModal()">
+            <i class="fas fa-file-pdf"></i> ส่งออกรายงานสรุป PDF
+          </button>
+          <button class="btn btn-danger-outline" onclick="triggerReset()">
+            <i class="fas fa-trash-alt"></i> รีเซ็ตผลการประเมิน
+          </button>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Tab Contents Area -->
+      <section class="main-content">
+
+        <!-- ==========================================================================
+             TAB 0: DASHBOARD / OVERVIEW
+             ========================================================================== -->
+        <div id="dashboard-tab" class="tab-content active">
+          <div class="card">
+            <div class="section-header">
+              <h2 class="section-title"><i class="fas fa-chart-bar"></i> ภาพรวมแสดงสถานะและผลคะแนน</h2>
+            </div>
+            
+            <div class="alert-banner info">
+              <i class="fas fa-info-circle" style="font-size: 1.15rem;"></i>
+              <div>
+                <strong>แบบประเมินตนเองนวัตกรรมนี้ประกอบด้วย 3 ส่วนหลัก</strong> ข้อมูลที่ทำการกรอกและทำเครื่องหมายจะถูกจัดเก็บในเครื่องของคุณโดยอัตโนมัติ (LocalStorage) และพร้อมส่งออกรายงานเมื่อพร้อม
+              </div>
+            </div>
+
+            <!-- Score breakdown chart in dashboard -->
+            <div class="sub-section-title">สรุปคะแนนแต่ละส่วน</div>
+            
+            <!-- Part 1 Checklist completion bar -->
+            <div class="category-card">
+              <div class="category-header">
+                <span class="category-title">ส่วนที่ 1: การตรวจสอบความพร้อม (19 เช็กลิสต์)</span>
+                <span class="category-score" id="db-p1-ratio" style="color: var(--text-color);">0 / 19 ข้อ</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="db-p1-progress"></div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: -8px;">
+                ด่านคัดกรองเบื้องต้นในการลงนิทรรศการ ซ้อมนำเสนอ และตรวจสอบรายละเอียดขั้นแรก
+              </div>
+            </div>
+
+            <!-- Part 2 Report Completion bar -->
+            <div class="category-card">
+              <div class="category-header">
+                <span class="category-title">ส่วนที่ 2: ความสมบูรณ์ของเอกสารรายงาน (คะแนนเต็ม 60)</span>
+                <span class="category-score" id="db-p2-score">0.0 / 60.0 คะแนน</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="db-p2-progress"></div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: -8px;">
+                ประเมินจากเอกสารรายงานพัฒนานวัตกรรม 8 องค์ประกอบหลักตามน้ำหนักเกณฑ์ประเมิน
+              </div>
+            </div>
+
+            <!-- Part 3 Exhibition Completion bar -->
+            <div class="category-card">
+              <div class="category-header">
+                <span class="category-title">ส่วนที่ 3: นิทรรศการและการนำเสนอหน้างาน (คะแนนเต็ม 40)</span>
+                <span class="category-score" id="db-p3-score">0.0 / 40.0 คะแนน</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="db-p3-progress"></div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: -8px;">
+                ประเมินจากหลักฐานประจักษ์ การจัดแสดง เทคนิคการพูดนำเสนอ และทักษะการซ้อมตอบข้อซักถาม
+              </div>
+            </div>
+
+            <!-- Pass / Fail Conditions Alert Box -->
+            <div class="sub-section-title">สถานะความพร้อมรับการประเมินเบื้องต้น</div>
+            <div id="readiness-detail-box" class="category-card" style="border-left: 5px solid var(--danger-color);">
+              <div style="font-weight: 600; font-size: 1.05rem; margin-bottom: 4px;" id="readiness-title">
+                ยังไม่ผ่านเงื่อนไขเกณฑ์ส่งผลงานเบื้องต้น
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-light);" id="readiness-desc">
+                คุณยังไม่ได้ทำการเลือก checklist หรือยังขาดข้อกำหนดในระยะที่ 1 (การส่งเอกสารรายงานถึงเขต, ความยาวเล่มไม่เกิน 50 หน้า, การจัดฟอนต์, ระยะขอบกระดาษ, แผ่นภาพอินโฟกราฟิก, แบบรับรองคุณภาพ หรือไฟล์ PDF) ซึ่งเกณฑ์นี้เป็นด่านบังคับเบื้องต้น (ผ่าน/ไม่ผ่าน)
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             TAB 1: PART 1 - READINESS CHECKLIST (19 ITEMS)
+             ========================================================================== -->
+        <div id="part1-tab" class="tab-content">
+          <div class="card">
+            <div class="section-header">
+              <h2 class="section-title"><i class="fas fa-tasks"></i> ส่วนที่ 1: การตรวจสอบความพร้อม</h2>
+              <span class="section-score-label" id="score-label-p1">0 / 19 ข้อ</span>
+            </div>
+
+            <div class="alert-banner warning">
+              <i class="fas fa-exclamation-circle" style="font-size: 1.25rem;"></i>
+              <div>
+                <strong>สำคัญมากในระยะที่ 1:</strong> ต้องกรอกและจัดทำทุกรายละเอียดให้ตรงตามเกณฑ์ของเขตพื้นที่การศึกษา หากไม่ผ่านระยะที่ 1 คณะกรรมการจะไม่ประเมินต่อในระยะที่ 2 และ 3
+              </div>
+            </div>
+
+            <!-- Phase 1: Documents and initial submission (7 items) -->
+            <div class="sub-section-title">ระยะที่ 1: การเตรียมเอกสารและการส่งผลงานเบื้องต้น (เกณฑ์ด่านผ่าน/ไม่ผ่าน)</div>
+            <div class="checklist-list">
+              <div class="checklist-item" onclick="toggleItem('p1_1')">
+                <div class="custom-checkbox" id="chk_p1_1"></div>
+                <div class="checklist-text">จัดส่งเอกสารรายงานถึงสำนักงานเขตพื้นที่การศึกษาภายในเวลาที่กำหนด</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_2')">
+                <div class="custom-checkbox" id="chk_p1_2"></div>
+                <div class="checklist-text">รายงานมีจำนวนรวมไม่เกิน 50 หน้า โดยแบ่งเป็นส่วนเนื้อหาไม่เกิน 30 หน้า และภาคผนวกไม่เกิน 20 หน้า (ไม่รวมปก บทคัดย่อ คำนำ และสารบัญ)</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_3')">
+                <div class="custom-checkbox" id="chk_p1_3"></div>
+                <div class="checklist-text">จัดรูปแบบเอกสารถูกต้อง โดยใช้ฟอนต์ไทยสารบรรณ (TH Sarabun PSK) ขนาด 16 พอยท์</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_4')">
+                <div class="custom-checkbox" id="chk_p1_4"></div>
+                <div class="checklist-text">ตั้งระยะขอบหน้ากระดาษถูกต้อง (ขอบซ้าย 1.5 นิ้ว, ขอบขวา 1 นิ้ว, ขอบบน 1.5 นิ้ว, ขอบล่าง 1 นิ้ว)</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_5')">
+                <div class="custom-checkbox" id="chk_p1_5"></div>
+                <div class="checklist-text">จัดทำแผนภาพนวัตกรรม (Infographic) ขนาด A4 จำนวน 1 แผ่น และแยกออกจากเล่มรายงาน</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_6')">
+                <div class="custom-checkbox" id="chk_p1_6"></div>
+                <div class="checklist-text">มีแบบรับรองคุณภาพรายงานการพัฒนานวัตกรรมการศึกษา โดยแยกออกจากเล่มรายงาน</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_7')">
+                <div class="custom-checkbox" id="chk_p1_7"></div>
+                <div class="checklist-text">เตรียมไฟล์ PDF ของรายงานและ Infographic พร้อมส่งในระบบออนไลน์</div>
+              </div>
+            </div>
+
+            <!-- Phase 2: Exhibition preparation (6 items) -->
+            <div class="sub-section-title">ระยะที่ 2: การเตรียมจัดแสดงนิทรรศการแลกเปลี่ยนเรียนรู้ (หน้างานประเมิน)</div>
+            <div class="checklist-list">
+              <div class="checklist-item" onclick="toggleItem('p1_8')">
+                <div class="custom-checkbox" id="chk_p1_8"></div>
+                <div class="checklist-text">ป้ายนิทรรศการมีองค์ประกอบครบ 5 ส่วน คือ 1) ชื่อผลงาน 2) วัตถุประสงค์ 3) ความเป็นมา 4) ขั้นตอนการดำเนินงานและผลสำเร็จ 5) หลักฐานเชิงประจักษ์</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_9')">
+                <div class="custom-checkbox" id="chk_p1_9"></div>
+                <div class="checklist-text">มีการนำเสนอด้วยสื่อหรือเทคโนโลยีที่หลากหลาย เหมาะสมกับเนื้อหา</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_10')">
+                <div class="custom-checkbox" id="chk_p1_10"></div>
+                <div class="checklist-text">นิทรรศการถูกออกแบบอย่างเป็นเอกภาพ มีอัตลักษณ์ที่สามารถสื่อสารให้เข้าใจได้ทันที และจัดวางได้เรียบร้อยเหมาะสม</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_11')">
+                <div class="custom-checkbox" id="chk_p1_11"></div>
+                <div class="checklist-text">ใช้วัสดุในการจัดแสดงอย่างคุ้มค่า ประหยัด และคำนึงถึงความยั่งยืน</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_12')">
+                <div class="custom-checkbox" id="chk_p1_12"></div>
+                <div class="checklist-text">เตรียมชิ้นงานนวัตกรรม คู่มือ หรือแบบจำลองนวัตกรรมมาจัดแสดงจริง</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_13')">
+                <div class="custom-checkbox" id="chk_p1_13"></div>
+                <div class="checklist-text">มีหลักฐานร่องรอยมาให้กรรมการตรวจสอบครบถ้วน เช่น รายงานการประชุม/PLC, ภาพถ่ายการนำไปใช้จริง, ผลงานนักเรียน, เครื่องมือวัดผล และร่องรอยการเผยแพร่ผลงาน</div>
+              </div>
+            </div>
+
+            <!-- Phase 3: Presentation and Q&A (6 items) -->
+            <div class="sub-section-title">ระยะที่ 3: การเตรียมตัวนำเสนอและซ้อมตอบคำถาม (Presentation & Q&A)</div>
+            <div class="checklist-list">
+              <div class="checklist-item" onclick="toggleItem('p1_14')">
+                <div class="custom-checkbox" id="chk_p1_14"></div>
+                <div class="checklist-text">ซ้อมพูดนำเสนอให้เนื้อหากระชับ เข้าใจง่าย ไม่เยิ่นเย้อ และสื่อสารด้วยความมั่นใจ</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_15')">
+                <div class="custom-checkbox" id="chk_p1_15"></div>
+                <div class="checklist-text">ซ้อมลำดับการนำเสนออย่างเป็นระบบ ครอบคลุมทั้ง ที่มา วัตถุประสงค์ กระบวนการดำเนินงาน และผลลัพธ์</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_16')">
+                <div class="custom-checkbox" id="chk_p1_16"></div>
+                <div class="checklist-text">สามารถอธิบายหลักการ แนวคิด ทฤษฎีที่นำมาประยุกต์ใช้สร้างนวัตกรรมได้อย่างถูกต้องลึกซึ้ง</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_17')">
+                <div class="custom-checkbox" id="chk_p1_17"></div>
+                <div class="checklist-text">ซ้อมตอบคำถามให้ตรงประเด็น โดยสามารถใช้เหตุผลและข้อมูลอ้างอิงสนับสนุนคำตอบได้</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_18')">
+                <div class="custom-checkbox" id="chk_p1_18"></div>
+                <div class="checklist-text">ตรวจสอบว่า "สิ่งที่พูดนำเสนอ" ตรงกับ "ข้อมูลที่เขียนไว้ในรายงาน 50 หน้า" โดยไม่มีการขยายความเกินจริงหรือละเว้นเนื้อหาสำคัญ</div>
+              </div>
+              <div class="checklist-item" onclick="toggleItem('p1_19')">
+                <div class="custom-checkbox" id="chk_p1_19"></div>
+                <div class="checklist-text">ซ้อมเทคนิคการ "เชื่อมโยงสิ่งที่พูดกับหลักฐาน" เช่น ฝึกพูดอ้างอิงข้อมูลแล้วชี้ให้กรรมการดูเอกสาร ภาพกิจกรรม หรือตารางผลการประเมินที่จัดแสดงไว้ประกอบกัน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             TAB 2: PART 2 - REPORT EVALUATION (60 POINTS)
+             ========================================================================== -->
+        <div id="part2-tab" class="tab-content">
+          <div class="card">
+            <div class="section-header">
+              <h2 class="section-title"><i class="fas fa-file-alt"></i> ส่วนที่ 2: ความสมบูรณ์ของเอกสารรายงาน</h2>
+              <span class="section-score-label" id="score-label-p2">0.0 / 60.0 คะแนน</span>
+            </div>
+
+            <div class="alert-banner info">
+              <i class="fas fa-info-circle" style="font-size: 1.15rem;"></i>
+              <div>
+                <strong>การให้คะแนนระดับสูงสุด (ระดับ 5):</strong> จะต้องเตรียมรายละเอียดและองค์ประกอบย่อยให้ครบถ้วนทั้ง 5 ข้อในแต่ละหัวข้อ หากขาดข้อใดข้อหนึ่งไป คณะกรรมการจะหักลดหย่อนคะแนนลงตามค่าน้ำหนัก
+              </div>
+            </div>
+
+            <!-- Categories 1 to 8 -->
+            <div id="part2-categories-container">
+              <!-- JS will load checklist dynamically -->
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             TAB 3: PART 3 - EXHIBITION & PRESENTATION (40 POINTS)
+             ========================================================================== -->
+        <div id="part3-tab" class="tab-content">
+          <div class="card">
+            <div class="section-header">
+              <h2 class="section-title"><i class="fas fa-tv"></i> ส่วนที่ 3: นิทรรศการและการนำเสนอหน้างาน</h2>
+              <span class="section-score-label" id="score-label-p3">0.0 / 40.0 คะแนน</span>
+            </div>
+
+            <div class="alert-banner info">
+              <i class="fas fa-info-circle" style="font-size: 1.15rem;"></i>
+              <div>
+                <strong>ส่วนที่ 3 นิทรรศการและการประเมินหน้างานจริง:</strong> คะแนนรวม 40 คะแนน อิงตามร่องรอยการทำงาน ป้ายนิทรรศการ การสื่อสารพูดนำเสนอ และความสอดคล้องเชิงประจักษ์
+              </div>
+            </div>
+
+            <div id="part3-categories-container">
+              <!-- JS will load part3 checklist dynamically -->
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       3. Footer Credits & Global Actions
+       ========================================================================== */ -->
+  <footer style="text-align: center; font-size: 0.8rem; color: var(--text-light); padding: 1rem 0; border-top: 1px solid var(--border-color); background-color: var(--card-bg); margin-top: 2rem;">
+    <div class="container">
+      <span>© 2569 แบบประเมินตนเอง — นวัตกรรมการศึกษา</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       4. Dialog Overlays: Confirm Reset / Confirm PDF Export / Loading Dialogs
+       ========================================================================== */ -->
+  <!-- Reset Confirmation Modal -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal-card">
+      <div class="modal-icon"><i class="fas fa-exclamation-triangle"></i></div>
+      <h3 class="modal-title">ยืนยันการรีเซ็ตข้อมูล</h3>
+      <p class="modal-desc">คุณแน่ใจหรือไม่ที่จะรีเซ็ตผลการประเมินทั้งหมด? ข้อมูลครูที่กรอกไว้และสถานะเช็กลิสต์จะสูญหายทั้งหมดและไม่สามารถกู้คืนกลับมาได้</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeResetModal()">ยกเลิก</button>
+        <button class="btn btn-danger" onclick="executeReset()">ยืนยันการรีเซ็ต</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Export Confirmation Modal (แน่ใจในผลการประเมินตนเองแล้วนะ) -->
+  <div class="modal-overlay" id="pdf-confirm-modal">
+    <div class="modal-card">
+      <div class="modal-icon" style="background-color: rgba(37, 99, 235, 0.1); color: var(--primary-color);">
+        <i class="fas fa-file-pdf"></i>
+      </div>
+      <h3 class="modal-title">ยืนยันการส่งออกรายงาน PDF</h3>
+      <p class="modal-desc" style="font-size: 1.15rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.75rem;">
+        แน่ใจในผลการประเมินตนเองแล้วนะ?
+      </p>
+      <p class="modal-desc" style="margin-bottom: 1.75rem;">
+        ข้อมูลสรุปผลและคะแนนความสมบูรณ์ที่ปรากฏจะถูกสร้างเป็นเอกสาร PDF โปรดตรวจสอบรายละเอียดข้อมูลบุคคลให้ครบถ้วนก่อนส่งออก
+      </p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closePdfConfirmModal()">กลับไปตรวจสอบ</button>
+        <button class="btn btn-primary" onclick="executePDFExport()">ยืนยันส่งออก PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading PDF Generation modal -->
+  <div class="loading-overlay" id="loading-modal">
+    <div class="loader"></div>
+    <div class="loading-text" id="loading-modal-text">กำลังจัดเตรียมโครงสร้างหน้ากระดาษและส่งออกรายงาน PDF...</div>
+  </div>
+
+  <!-- ==========================================================================
+       5. PDF Report Template Structure (Invisible on page, rendered off-screen)
+       ========================================================================== */ -->
+  <div id="pdf-report-template">
+    <div class="pdf-header">
+      <div class="pdf-title">รายงานผลการประเมินตนเองเพื่อเตรียมความพร้อมรับการประเมินนวัตกรรมการศึกษา</div>
+      <div class="pdf-subtitle">ประจำปีงบประมาณ พ.ศ. 2569</div>
+    </div>
+
+    <!-- Personal Info Block -->
+    <div class="pdf-info-grid">
+      <div class="pdf-info-item"><span class="label">ชื่อ-นามสกุล ผู้พัฒนานวัตกรรม: </span><span id="pdf-val-name">-</span></div>
+      <div class="pdf-info-item"><span class="label">วันที่ทำรายงาน: </span><span id="pdf-val-date">-</span></div>
+      <div class="pdf-info-item" style="grid-column: span 2;"><span class="label">โรงเรียน: </span><span id="pdf-val-school">-</span></div>
+      <div class="pdf-info-item" style="grid-column: span 2;"><span class="label">ประเภทนวัตกรรมด้านการจัดการเรียนรู้: </span><span id="pdf-val-dept">-</span></div>
+    </div>
+
+    <!-- Score Summary Gauge representation -->
+    <div class="pdf-score-box">
+      <div class="pdf-score-card">
+        <div class="val" id="pdf-score-p2">0.0 / 60</div>
+        <div class="lbl">ส่วนที่ 2: คะแนนเล่มรายงาน</div>
+      </div>
+      <div class="pdf-score-card">
+        <div class="val" id="pdf-score-p3">0.0 / 40</div>
+        <div class="lbl">ส่วนที่ 3: คะแนนจัดนิทรรศการและนำเสนอ</div>
+      </div>
+      <div class="pdf-score-card" style="border: none;">
+        <div class="val" id="pdf-score-total" style="color: #0f4c81;">0.0 / 100</div>
+        <div class="lbl">คะแนนประเมินรวมสุทธิ</div>
+      </div>
+      <div id="pdf-status-banner" class="pdf-status-banner fail">
+        สถานะเกณฑ์ส่งเอกสารเบื้องต้น (ระยะที่ 1): ยังไม่ผ่านเกณฑ์เบื้องต้น
+      </div>
+    </div>
+
+    <div class="pdf-section-title">สรุปผลระดับความพร้อมและการประเมินตนเองรายองค์ประกอบ</div>
+    
+    <table class="pdf-table">
+      <thead>
+        <tr>
+          <th style="width: 10%;">ที่</th>
+          <th style="width: 60%;">ส่วนการประเมิน / องค์ประกอบ</th>
+          <th style="width: 12%;">น้ำหนัก</th>
+          <th style="width: 18%;">คะแนนประเมินตนเอง</th>
+        </tr>
+      </thead>
+      <tbody id="pdf-table-body">
+        <!-- Rendered by JS -->
+      </tbody>
+    </table>
+
+    <div class="pdf-signature-section">
+      <div class="pdf-sig-box">
+        <div class="pdf-line">ลงชื่อ............................................................ผู้รายงาน</div>
+        <div>(............................................................)</div>
+        <div style="margin-top: 5px; font-size: 10pt; color: #555;">ครูผู้เสนอนวัตกรรม</div>
+      </div>
+      <div class="pdf-sig-box">
+        <div class="pdf-line">ลงชื่อ............................................................ผู้รับรอง/พิจารณา</div>
+        <div>(............................................................)</div>
+        <div style="margin-top: 5px; font-size: 10pt; color: #555;">ผู้อำนวยการโรงเรียน / ศึกษานิเทศก์</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       6. JavaScript Core Logic (LocalStorage, Dynamic rendering, Calculations, PDF)
+       ========================================================================== */ -->
+  <script>
+    /* ==========================================================================
+       Data definitions based on standard document criteria
+       ========================================================================== */
+    const PART2_CRITERIA = [
+      {
+        id: "p2_c1",
+        title: "1. ความเป็นมาและความสำคัญของการพัฒนานวัตกรรม",
+        weight: 1,
+        items: [
+          "มีการเชื่อมโยงนโยบาย ยุทธศาสตร์ชาติ แผนพัฒนาสถานศึกษา และอธิบายบริบทของโรงเรียน-ชุมชนอย่างเป็นระบบ",
+          "ระบุปัญหาโดยใช้ข้อมูลอ้างอิง (เช่น สถิติ ผลสำรวจ) และกำหนดกลุ่มเป้าหมายที่ได้รับผลกระทบชัดเจน",
+          "เชื่อมโยงทฤษฎีหรือกรอบแนวคิดที่สอดคล้องกับปัญหา และชี้ให้เห็นช่องว่างองค์ความรู้ (Research Gap)",
+          "ใช้หลักฐานงานวิจัย ผลการศึกษา หรือสถิติมาสนับสนุนความจำเป็น พร้อมสรุปประโยชน์ที่คาดหวัง",
+          "มีการอ้างอิงทางวิชาการในเนื้อหา (in-text citation) อย่างถูกต้อง และมีบรรณานุกรมท้ายเล่มตามมาตรฐาน"
+        ]
+      },
+      {
+        id: "p2_c2",
+        title: "2. วัตถุประสงค์และเป้าหมายของการพัฒนา",
+        weight: 1,
+        items: [
+          "วัตถุประสงค์สอดคล้องกับสภาพปัญหาและความต้องการ",
+          "วัตถุประสงค์มีความชัดเจน เป็นรูปธรรม",
+          "ระบุเป้าหมายทั้งเชิงปริมาณและเชิงคุณภาพอย่างชัดเจน สามารถวัดและประเมินผลได้",
+          "วัตถุประสงค์และเป้าหมายสะท้อนให้เห็นถึงการเพิ่มประสิทธิภาพของการปฏิบัติงาน",
+          "ระบุระยะเวลาการดำเนินงานไว้ชัดเจน"
+        ]
+      },
+      {
+        id: "p2_c3",
+        title: "3. หลักการ ทฤษฎี แนวคิดในการพัฒนา",
+        weight: 1,
+        items: [
+          "มีการศึกษาวรรณกรรม เอกสาร หรือทฤษฎีที่เกี่ยวข้องอย่างเหมาะสม",
+          "มีการวิเคราะห์และอธิบายความสัมพันธ์ระหว่างทฤษฎี/แนวคิด กับปัญหาที่ต้องการพัฒนา",
+          "มีการสังเคราะห์แนวคิดจากหลายแหล่งอย่างมีเหตุผล เพื่อนำมารองรับการออกแบบนวัตกรรม",
+          "สร้างกรอบแนวคิดอย่างเป็นระบบ ชัดเจน และสอดคล้องกับวัตถุประสงค์",
+          "อ้างอิงแหล่งข้อมูลทางวิชาการได้ถูกต้อง ครบถ้วนตามรูปแบบ"
+        ]
+      },
+      {
+        id: "p2_c4",
+        title: "4. ขั้นตอนหรือวิธีการสร้าง/พัฒนานวัตกรรม",
+        weight: 2,
+        items: [
+          "กำหนดขั้นตอนการพัฒนาอย่างเป็นระบบ อิงทฤษฎีที่สอดคล้องกับบริบท",
+          "ระบุกลุ่มตัวอย่าง เครื่องมือที่ใช้ และวิธีการวิเคราะห์ข้อมูล",
+          "ใช้วิธีการพัฒนาที่เหมาะสมกับบริบท (เช่น ใช้เทคโนโลยี, กระบวนการเรียนรู้)",
+          "ระบุขั้นตอนชัดเจนครอบคลุมตั้งแต่ วิเคราะห์ปัญหา -> ออกแบบ -> ทดลองใช้ -> ปรับปรุงพัฒนา",
+          "มีผู้เชี่ยวชาญเข้ามามีส่วนร่วมในขั้นตอนการออกแบบ ตรวจสอบเครื่องมือ ทดลองใช้ และให้ข้อเสนอแนะ"
+        ]
+      },
+      {
+        id: "p2_c5",
+        title: "5. กระบวนการหาคุณภาพของนวัตกรรม",
+        weight: 1,
+        items: [
+          "ตรวจสอบคุณภาพโดยผู้เชี่ยวชาญหรือผ่านกระบวนการมีส่วนร่วม (เช่น PLC) และนำผลไปปรับปรุงก่อนใช้จริง",
+          "มีการทดลองใช้ (Tryout) หรือทดลองใช้จริง พร้อมเก็บข้อมูลผลลัพธ์ที่เกิดขึ้น",
+          "ประเมินประสิทธิภาพนวัตกรรมด้วยเกณฑ์ที่เหมาะสม (เช่น E1/E2 สำหรับสื่อ หรือ SWOT/PDCA สำหรับการบริหาร)",
+          "ประเมินประสิทธิผลของนวัตกรรม (เช่น เปรียบเทียบผลสัมฤทธิ์ก่อน-หลัง, ความพึงพอใจ)",
+          "มีหลักฐานแสดงผลการนำไปปรับปรุง พัฒนาต่อยอด"
+        ]
+      },
+      {
+        id: "p2_c6",
+        title: "6. ผลที่เกิดขึ้นจากการใช้หรือการพัฒนานวัตกรรม",
+        weight: 2,
+        items: [
+          "มีหลักฐานแสดงการนำนวัตกรรมไปใช้จริง สอดคล้องกับวัตถุประสงค์ที่ตั้งไว้",
+          "มีผลการดำเนินงานที่สะท้อนความสำเร็จ/บรรลุตัวชี้วัด ทั้งเชิงพฤติกรรมและผลสัมฤทธิ์ที่วัดได้",
+          "มีหลักฐานแสดงความพึงพอใจของผู้เรียน ครู หรือผู้ปกครอง ในด้านความเข้าใจและประโยชน์ใช้สอย",
+          "รายงานผลที่เกิดขึ้นอย่างเป็นระบบ (เช่น การเกิดทักษะ/สมรรถนะต่อผู้เรียน หรือ การลดข้อผิดพลาดต่อองค์กร)",
+          "มีการวิเคราะห์ข้อค้นพบ พร้อมข้อเสนอแนะเพื่อขยายผล หรือสะท้อนความสามารถในการนำไปประยุกต์ใช้ในบริบทอื่น"
+        ]
+      },
+      {
+        id: "p2_c7",
+        title: "7. การเผยแพร่นวัตกรรม",
+        weight: 1,
+        items: [
+          "นำเสนอหรือถ่ายทอดนวัตกรรมสู่หน่วยงาน/บุคคลภายนอก (ไม่จำกัดแค่ในองค์กร)",
+          "ใช้รูปแบบเผยแพร่ที่หลากหลาย (เช่น เวทีวิชาการ, สื่อออนไลน์, เอกสารคู่มือ)",
+          "มีหลักฐานการเผยแพร่ชัดเจน (ภาพถ่าย, ลิงก์, ข่าว, หนังสือรับรอง)",
+          "ได้รับการยอมรับจากหน่วยงานภายนอก โดยมีหลักฐานว่ามีผู้นำแนวปฏิบัตินี้ไปใช้จริง",
+          "มีผลลัพธ์การเปลี่ยนแปลงที่เกิดกับกลุ่มเป้าหมายหลังการเผยแพร่ มีการขยายผล/สร้างเครือข่ายต่อเนื่อง"
+        ]
+      },
+      {
+        id: "p2_c8",
+        title: "8. ประโยชน์ของนวัตกรรม",
+        weight: 3,
+        items: [
+          "อธิบายผลลัพธ์ที่เกิดกับผู้เรียน ครู สถานศึกษาอย่างชัดเจน (พฤติกรรม/สมรรถนะที่ดีขึ้น) พร้อมหลักฐานเชิงประจักษ์",
+          "นวัตกรรมช่วยสนับสนุนให้เกิดการปรับปรุงระบบบริหารจัดการ หรือการจัดการเรียนรู้ของโรงเรียนอย่างมีประสิทธิภาพ",
+          "ช่วยยกระดับผลสัมฤทธิ์/คุณภาพผู้เรียน หรือยกระดับคุณภาพการดำเนินงานของสถานศึกษา โดยมีข้อมูลยืนยัน",
+          "มีศักยภาพในการขยายผล เป็นต้นแบบ หรือนำไปปรับใช้ในโรงเรียน/ชุมชนอื่นที่มีบริบทคล้ายกันได้",
+          "มีคุณค่าทางวิชาการ สามารถสังเคราะห์เป็นองค์ความรู้ใหม่ เป็นแนวปฏิบัติที่ดี (Best Practice) ส่งเสริมการเปลี่ยนแปลงในวิชาชีพได้"
+        ]
+      }
+    ];
+
+    const PART3_CRITERIA = [
+      {
+        id: "p3_c1",
+        title: "1. หลักฐานการพัฒนานวัตกรรม",
+        weight: 3,
+        items: [
+          "มีหลักฐานแสดงการวางแผนอย่างเป็นระบบ (เช่น รายงานการประชุม, การวิเคราะห์ปัญหา/สาเหตุ, กิจกรรม PLC, แผนงาน หรือโครงการ)",
+          "มีหลักฐานแสดงชิ้นงานหรือองค์ประกอบนวัตกรรม (เช่น ชิ้นงานนวัตกรรมจริง, คู่มือการใช้, เอกสารประกอบ, หรือแบบจำลองนวัตกรรม)",
+          "มีหลักฐานการนำนวัตกรรมไปใช้จริงในโรงเรียน (เช่น ภาพกิจกรรมในชั้นเรียน/การบริหาร, ตัวอย่างผลงานนักเรียน, หรือผลการประเมินการใช้)",
+          "มีหลักฐานการประเมินนวัตกรรมอย่างเป็นระบบ (เช่น แบบประเมิน, เครื่องมือเก็บรวบรวมข้อมูล, ตารางวิเคราะห์ผล, สรุปผลการประเมิน)",
+          "มีหลักฐานการเผยแพร่หรือแลกเปลี่ยนเรียนรู้ที่ชัดเจน ตรวจสอบได้ (เช่น ภาพถ่าย, ลิงก์เว็บไซต์, ข่าวประชาสัมพันธ์, หนังสือรับรอง, วารสารวิชาการ)"
+        ]
+      },
+      {
+        id: "p3_c2",
+        title: "2. การจัดแสดงนิทรรศการ",
+        weight: 2,
+        items: [
+          "ป้าย/บอร์ดนิทรรศการมีองค์ประกอบครบ 5 ส่วน คือ 1) ชื่อผลงาน 2) วัตถุประสงค์ 3) ความเป็นมา 4) ขั้นตอนการดำเนินงานและผลสำเร็จ 5) หลักฐานเชิงประจักษ์",
+          "มีการนำเสนอด้วยสื่อหรือเทคโนโลยีหลากหลายประเภทที่เหมาะสมกับเนื้อหา",
+          "จัดวางนิทรรศการเรียบร้อย สอดคล้องกับเนื้อหา และจัดพื้นที่แสดงผลงานได้อย่างเหมาะสม",
+          "ประยุกต์ใช้วัสดุอย่างคุ้มค่า ประหยัด และคำนึงถึงความยั่งยืน",
+          "ออกแบบนิทรรศการเป็นเอกภาพ มีอัตลักษณ์ที่สื่อสารให้เข้าใจได้ทันที"
+        ]
+      },
+      {
+        id: "p3_c3",
+        title: "3. การนำเสนอ",
+        weight: 2,
+        items: [
+          "สื่อสารชัดเจน ถ่ายทอดเนื้อหาได้ดี มีจังหวะการพูดเหมาะสม ใช้ภาษากระชับ เข้าใจง่าย ไม่เยิ่นเย้อ",
+          "ลำดับเนื้อหาอธิบายอย่างเป็นระบบ ครอบคลุมหัวข้อสำคัญ ได้แก่ ที่มา วัตถุประสงค์ กระบวนการดำเนินงาน และผลลัพธ์",
+          "นำเสนอด้วยความมั่นใจ น้ำเสียง สีหน้า ท่าทาง และบุคลิกภาพมีความเหมาะสมกับเวทีวิชาการ",
+          "แสดงให้เห็นถึงความเข้าใจลึกซึ้งในเนื้อหา สามารถอธิบายหลักการ แนวคิด ทฤษฎี และการนำไปประยุกต์ใช้ได้อย่างถูกต้อง",
+          "มีทักษะตอบคำถามได้ตรงประเด็น มีเหตุผลชัดเจน อ้างอิงข้อมูลสนับสนุนคำตอบได้ และแสดงทัศนะได้เหมาะสม"
+        ]
+      },
+      {
+        id: "p3_c4",
+        title: "4. ความสอดคล้องในการนำเสนอกับเอกสารหลักฐาน",
+        weight: 1,
+        items: [
+          "เนื้อหาที่พูดนำเสนอ/คลิปวิดีโอ ตรงกับข้อมูลในเอกสารรายงานอย่างชัดเจน ครอบคลุมที่มา วัตถุประสงค์ ขั้นตอน ผลลัพธ์ และข้อเสนอแนะ",
+          "เอกสารหรือหลักฐานที่จัดแสดงสามารถยืนยันประเด็นที่พูดนำเสนอได้ (เช่น ภาพกิจกรรม, ตารางผลประเมิน)",
+          "การอ้างอิงข้อมูล ตัวเลข หรือคำกล่าวอธิบายในขณะนำเสนอ มีที่มาชัดเจน ตรวจสอบได้จากเอกสารแนบ",
+          "ขณะนำเสนอ สามารถเชื่อมโยงสิ่งที่พูดกับหลักฐานประกอบได้ (เช่น ชี้ให้กรรมการดูว่า \"ผลลัพธ์นี้ มาจากแบบประเมินส่วนนี้ในเอกสาร\")",
+          "สิ่งที่พูดนำเสนอปากเปล่า ไม่มีความคลาดเคลื่อนกับข้อมูลที่เขียนในรายงาน (ไม่มีการพูดขยายความเกินจริง และไม่ละเว้นเนื้อหาสำคัญจากเอกสาร)"
+        ]
+      }
+    ];
+
+    // Global application state
+    let appState = {
+      theme: 'light',
+      fontSize: 'medium',
+      userInfo: {
+        name: '',
+        school: '',
+        dept: ''
+      },
+      part1: {}, // keys like p1_1: true/false
+      part2: {}, // keys like p2_c1_0: true/false (category_id + _index)
+      part3: {}  // keys like p3_c1_0: true/false
+    };
+
+    /* ==========================================================================
+       Initial load & configuration
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPart2Categories();
+      renderPart3Categories();
+      loadState();
+      calculateScores();
+      setupInputListeners();
+    });
+
+    // Render Part 2 Checklist HTML DOM elements
+    function renderPart2Categories() {
+      const container = document.getElementById('part2-categories-container');
+      let html = '';
+      
+      PART2_CRITERIA.forEach((cat) => {
+        html += `
+          <div class="category-card" id="card-${cat.id}">
+            <div class="category-header">
+              <span class="category-title">${cat.title}</span>
+              <span class="category-score" id="score-val-${cat.id}">0.0 / ${cat.weight * 5} คะแนน (ค่าน้ำหนัก: ${cat.weight})</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progress-${cat.id}"></div>
+            </div>
+            <div class="checklist-list">
+        `;
+        
+        cat.items.forEach((item, index) => {
+          const itemKey = `${cat.id}_${index}`;
+          html += `
+              <div class="checklist-item" id="item-${itemKey}" onclick="togglePart2Item('${cat.id}', ${index})">
+                <div class="custom-checkbox" id="chk-${itemKey}"></div>
+                <div class="checklist-text">${item}</div>
+              </div>
+          `;
+        });
+        
+        html += `
+            </div>
+          </div>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    // Render Part 3 Checklist HTML DOM elements
+    function renderPart3Categories() {
+      const container = document.getElementById('part3-categories-container');
+      let html = '';
+      
+      PART3_CRITERIA.forEach((cat) => {
+        html += `
+          <div class="category-card" id="card-${cat.id}">
+            <div class="category-header">
+              <span class="category-title">${cat.title}</span>
+              <span class="category-score" id="score-val-${cat.id}">0.0 / ${cat.weight * 5} คะแนน (ค่าน้ำหนัก: ${cat.weight})</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progress-${cat.id}"></div>
+            </div>
+            <div class="checklist-list">
+        `;
+        
+        cat.items.forEach((item, index) => {
+          const itemKey = `${cat.id}_${index}`;
+          html += `
+              <div class="checklist-item" id="item-${itemKey}" onclick="togglePart3Item('${cat.id}', ${index})">
+                <div class="custom-checkbox" id="chk-${itemKey}"></div>
+                <div class="checklist-text">${item}</div>
+              </div>
+          `;
+        });
+        
+        html += `
+            </div>
+          </div>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    // Setup Event listeners for name, school and department fields
+    function setupInputListeners() {
+      const inputs = ['user-name', 'user-school', 'user-dept'];
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const field = id.replace('user-', '');
+        
+        el.addEventListener('input', (e) => {
+          appState.userInfo[field] = e.target.value;
+          saveState();
+        });
+        
+        el.addEventListener('change', (e) => {
+          appState.userInfo[field] = e.target.value;
+          saveState();
+        });
+      });
+    }
+
+    /* ==========================================================================
+       UX Settings & View Handlers (Theme, Fonts, Tabs)
+       ========================================================================== */
+    // Apply theme tone
+    function setTheme(theme) {
+      document.body.className = '';
+      document.body.classList.add(`theme-${theme}`);
+      appState.theme = theme;
+      
+      // Update UI active buttons
+      document.getElementById('theme-light-btn').classList.toggle('active', theme === 'light');
+      document.getElementById('theme-warm-btn').classList.toggle('active', theme === 'warm');
+      document.getElementById('theme-dark-btn').classList.toggle('active', theme === 'dark');
+      
+      saveState();
+    }
+
+    // Apply font size
+    function setFontSize(size) {
+      const htmlEl = document.documentElement;
+      htmlEl.className = '';
+      htmlEl.classList.add(`size-${size}`);
+      appState.fontSize = size;
+      
+      // Update UI active buttons
+      document.getElementById('font-sm').classList.toggle('active', size === 'small');
+      document.getElementById('font-md').classList.toggle('active', size === 'medium');
+      document.getElementById('font-lg').classList.toggle('active', size === 'large');
+      
+      saveState();
+    }
+
+    // Switch Tabs
+    function switchTab(tabId, btn) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Show targeted tab
+      document.getElementById(tabId).classList.add('active');
+      
+      // Update active nav button
+      document.querySelectorAll('.tab-btn').forEach(button => {
+        button.classList.remove('active');
+      });
+      btn.classList.add('active');
+    }
+
+    // Refresh UI page action
+    function triggerRefresh() {
+      const icon = document.getElementById('refresh-icon');
+      icon.classList.add('spin-animate');
+      setTimeout(() => {
+        icon.classList.remove('spin-animate');
+        // Simple client calculation sync and state reload
+        loadState();
+        calculateScores();
+      }, 600);
+    }
+
+    /* ==========================================================================
+       Checklist Item Toggling Operations
+       ========================================================================== */
+    // Toggle Part 1 Items (1 to 19)
+    function toggleItem(id) {
+      const itemEl = document.getElementById(`chk_${id}`).parentElement;
+      const isChecked = !appState.part1[id];
+      appState.part1[id] = isChecked;
+      
+      itemEl.classList.toggle('checked', isChecked);
+      saveState();
+      calculateScores();
+    }
+
+    // Toggle Part 2 Items
+    function togglePart2Item(catId, index) {
+      const itemKey = `${catId}_${index}`;
+      const itemEl = document.getElementById(`item-${itemKey}`);
+      const isChecked = !appState.part2[itemKey];
+      appState.part2[itemKey] = isChecked;
+      
+      itemEl.classList.toggle('checked', isChecked);
+      saveState();
+      calculateScores();
+    }
+
+    // Toggle Part 3 Items
+    function togglePart3Item(catId, index) {
+      const itemKey = `${catId}_${index}`;
+      const itemEl = document.getElementById(`item-${itemKey}`);
+      const isChecked = !appState.part3[itemKey];
+      appState.part3[itemKey] = isChecked;
+      
+      itemEl.classList.toggle('checked', isChecked);
+      saveState();
+      calculateScores();
+    }
+
+    /* ==========================================================================
+       Score calculations and state tracking
+       ========================================================================== */
+    function calculateScores() {
+      // 1. Calculate Part 1 Progress and Pass/Fail Level 1 Conditions
+      let p1Count = 0;
+      let passLevel1 = true;
+      
+      // 7 key requirements in Phase 1 (p1_1 to p1_7)
+      for (let i = 1; i <= 7; i++) {
+        if (appState.part1[`p1_${i}`]) {
+          p1Count++;
+        } else {
+          passLevel1 = false;
+        }
+      }
+      
+      // Remaining 12 requirements in Phase 2 & 3
+      for (let i = 8; i <= 19; i++) {
+        if (appState.part1[`p1_${i}`]) {
+          p1Count++;
+        }
+      }
+      
+      // Update Part 1 Labels
+      document.getElementById('score-label-p1').innerText = `${p1Count} / 19 ข้อ`;
+      document.getElementById('badge-p1').innerText = `${p1Count}/19`;
+      document.getElementById('db-p1-ratio').innerText = `${p1Count} / 19 ข้อ`;
+      const p1Percentage = (p1Count / 19) * 100;
+      document.getElementById('db-p1-progress').style.width = `${p1Percentage}%`;
+
+      // Pass/Fail level status update
+      const readinessBadge = document.getElementById('readiness-badge');
+      const readinessDetailBox = document.getElementById('readiness-detail-box');
+      const readinessTitle = document.getElementById('readiness-title');
+      const readinessDesc = document.getElementById('readiness-desc');
+      
+      if (passLevel1) {
+        readinessBadge.className = 'status-badge pass';
+        readinessBadge.innerHTML = '<i class="fas fa-check-circle"></i> ผ่านเกณฑ์เบื้องต้นแล้ว';
+        
+        readinessDetailBox.style.borderLeftColor = 'var(--success-color)';
+        readinessTitle.innerText = 'ผ่านเงื่อนไขการส่งเอกสารเบื้องต้น (ระยะที่ 1)';
+        readinessDesc.innerText = 'เอกสารรายงานพัฒนานวัตกรรมของคุณมีคุณสมบัติครบถ้วนตามเกณฑ์เบื้องต้น (ตรงเวลา, ขนาดเล่ม <= 50 หน้า, ฟอนต์และขนาดถูกต้อง, มีแผนภาพ Infographic, แบบรับรองคุณภาพ และไฟล์ PDF) พร้อมเข้าสู่การประเมินขั้นถัดไป';
+      } else {
+        readinessBadge.className = 'status-badge fail';
+        readinessBadge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ขาดเงื่อนไขเกณฑ์เบื้องต้น';
+        
+        readinessDetailBox.style.borderLeftColor = 'var(--danger-color)';
+        readinessTitle.innerText = 'ยังไม่ผ่านเงื่อนไขเกณฑ์ส่งผลงานเบื้องต้น';
+        readinessDesc.innerText = 'คุณยังขาดเกณฑ์กำหนดในระยะที่ 1 (โปรดตรวจสอบและเช็กเงื่อนไขระยะที่ 1 ทั้ง 7 หัวข้อให้ครบถ้วน) การมีองค์ประกอบเหล่านี้ครบถ้วนถือเป็นด่านบังคับ หากขาดข้อใดข้อหนึ่ง จะไม่ได้รับการประเมินคุณภาพในขั้นตอนต่อไป';
+      }
+
+      // 2. Calculate Part 2 Scores (Max 60 points)
+      let p2TotalScore = 0;
+      
+      PART2_CRITERIA.forEach(cat => {
+        let catCheckedCount = 0;
+        cat.items.forEach((_, index) => {
+          if (appState.part2[`${cat.id}_${index}`]) {
+            catCheckedCount++;
+          }
+        });
+        
+        // Calculate weighted score: (checked count) * weight. (Max is weight * 5)
+        const catScore = catCheckedCount * cat.weight;
+        p2TotalScore += catScore;
+        
+        // Update category HTML UI elements
+        const scoreLabel = document.getElementById(`score-val-${cat.id}`);
+        if (scoreLabel) {
+          scoreLabel.innerText = `${catScore.toFixed(1)} / ${(cat.weight * 5).toFixed(1)} คะแนน`;
+        }
+        const progressBar = document.getElementById(`progress-${cat.id}`);
+        if (progressBar) {
+          progressBar.style.width = `${(catCheckedCount / 5) * 100}%`;
+        }
+      });
+      
+      // Update Part 2 Summary Labels
+      document.getElementById('score-label-p2').innerText = `${p2TotalScore.toFixed(1)} / 60.0 คะแนน`;
+      document.getElementById('badge-p2').innerText = p2TotalScore.toFixed(1);
+      document.getElementById('db-p2-score').innerText = `${p2TotalScore.toFixed(1)} / 60.0 คะแนน`;
+      document.getElementById('db-p2-progress').style.width = `${(p2TotalScore / 60) * 100}%`;
+
+      // 3. Calculate Part 3 Scores (Max 40 points)
+      let p3TotalScore = 0;
+      
+      PART3_CRITERIA.forEach(cat => {
+        let catCheckedCount = 0;
+        cat.items.forEach((_, index) => {
+          if (appState.part3[`${cat.id}_${index}`]) {
+            catCheckedCount++;
+          }
+        });
+        
+        const catScore = catCheckedCount * cat.weight;
+        p3TotalScore += catScore;
+        
+        // Update category HTML UI elements
+        const scoreLabel = document.getElementById(`score-val-${cat.id}`);
+        if (scoreLabel) {
+          scoreLabel.innerText = `${catScore.toFixed(1)} / ${(cat.weight * 5).toFixed(1)} คะแนน`;
+        }
+        const progressBar = document.getElementById(`progress-${cat.id}`);
+        if (progressBar) {
+          progressBar.style.width = `${(catCheckedCount / 5) * 100}%`;
+        }
+      });
+      
+      // Update Part 3 Summary Labels
+      document.getElementById('score-label-p3').innerText = `${p3TotalScore.toFixed(1)} / 40.0 คะแนน`;
+      document.getElementById('badge-p3').innerText = p3TotalScore.toFixed(1);
+      document.getElementById('db-p3-score').innerText = `${p3TotalScore.toFixed(1)} / 40.0 คะแนน`;
+      document.getElementById('db-p3-progress').style.width = `${(p3TotalScore / 40) * 100}%`;
+
+      // 4. Calculate Combined Total Scores (Max 100 points)
+      const finalScore = p2TotalScore + p3TotalScore;
+      document.getElementById('radial-score-val').innerText = Math.round(finalScore);
+      
+      // Update Dashboard Tab badge indicator percentage representation
+      document.getElementById('badge-ov').innerText = `${Math.round(finalScore)}%`;
+
+      // SVG Circular Gauge Update
+      const radialBar = document.getElementById('radial-bar');
+      const maxOffset = 326.7;
+      const offsetVal = maxOffset - ((finalScore / 100) * maxOffset);
+      radialBar.style.strokeDashoffset = offsetVal;
+    }
+
+    /* ==========================================================================
+       Persistent State Storage (LocalStorage)
+       ========================================================================== */
+    function saveState() {
+      localStorage.setItem('education_innovation_checklist_2026_v2', JSON.stringify(appState));
+    }
+
+    function loadState() {
+      const stored = localStorage.getItem('education_innovation_checklist_2026_v2');
+      if (stored) {
+        try {
+          appState = JSON.parse(stored);
+          
+          // Apply controls (theme & font)
+          if (appState.theme) setTheme(appState.theme);
+          if (appState.fontSize) setFontSize(appState.fontSize);
+          
+          // Apply inputs
+          if (appState.userInfo) {
+            document.getElementById('user-name').value = appState.userInfo.name || '';
+            document.getElementById('user-school').value = appState.userInfo.school || '';
+            document.getElementById('user-dept').value = appState.userInfo.dept || '';
+          }
+          
+          // Apply checkboxes Part 1
+          if (appState.part1) {
+            Object.keys(appState.part1).forEach(id => {
+              const chk = document.getElementById(`chk_${id}`);
+              if (chk) {
+                chk.parentElement.classList.toggle('checked', appState.part1[id]);
+              }
+            });
+          }
+          
+          // Apply checkboxes Part 2
+          if (appState.part2) {
+            Object.keys(appState.part2).forEach(key => {
+              const item = document.getElementById(`item-${key}`);
+              if (item) {
+                item.classList.toggle('checked', appState.part2[key]);
+              }
+            });
+          }
+
+          // Apply checkboxes Part 3
+          if (appState.part3) {
+            Object.keys(appState.part3).forEach(key => {
+              const item = document.getElementById(`item-${key}`);
+              if (item) {
+                item.classList.toggle('checked', appState.part3[key]);
+              }
+            });
+          }
+        } catch (e) {
+          console.error("Error loading localStorage state.", e);
+        }
+      }
+    }
+
+    /* ==========================================================================
+       Data Reset modal workflow
+       ========================================================================== */
+    function triggerReset() {
+      document.getElementById('confirm-modal').classList.add('active');
+    }
+
+    function closeResetModal() {
+      document.getElementById('confirm-modal').classList.remove('active');
+    }
+
+    function executeReset() {
+      // Clear data states
+      localStorage.removeItem('education_innovation_checklist_2026_v2');
+      appState = {
+        theme: appState.theme, // keep user configuration choices
+        fontSize: appState.fontSize,
+        userInfo: { name: '', school: '', dept: '' },
+        part1: {},
+        part2: {},
+        part3: {}
+      };
+      
+      // Clear Input Controls
+      document.getElementById('user-name').value = '';
+      document.getElementById('user-school').value = '';
+      document.getElementById('user-dept').value = '';
+      
+      // Clear checklist classes
+      document.querySelectorAll('.checklist-item').forEach(item => {
+        item.classList.remove('checked');
+      });
+      
+      // Save empty state, recalculate UI scores & close modal
+      saveState();
+      calculateScores();
+      closeResetModal();
+      
+      // Navigate user back to the Overview Dashboard tab
+      const dbTabBtn = document.querySelectorAll('.tab-btn')[0];
+      switchTab('dashboard-tab', dbTabBtn);
+    }
+
+    /* ==========================================================================
+       PDF Report Rendering & Formatting
+       ========================================================================== */
+    // Open Confirmation Dialog
+    function openPdfConfirmModal() {
+      document.getElementById('pdf-confirm-modal').classList.add('active');
+    }
+
+    // Close Confirmation Dialog
+    function closePdfConfirmModal() {
+      document.getElementById('pdf-confirm-modal').classList.remove('active');
+    }
+
+    // ── Assessment for Learning Recommendation Engine ────────────────────────────
+    function buildRecommendations(passLevel1, p2Total, p3Total, grandTotal, p2Rows, p3Rows) {
+      const p2Pct = (p2Total / 60) * 100;
+      const p3Pct = (p3Total / 40) * 100;
+      const allRows = [...p2Rows, ...p3Rows];
+
+      // ── ระดับคุณภาพโดยรวม ───────────────────────────────────────────────
+      let levelLabel, levelColor, levelMsg;
+      if (grandTotal >= 90) {
+        levelLabel = 'ดีเยี่ยม'; levelColor = '#155724';
+        levelMsg = 'ผลการประเมินตนเองของท่านอยู่ในระดับ <strong>ดีเยี่ยม</strong> ซึ่งสะท้อนถึงความมุ่งมั่น ความพร้อม และความเป็นมืออาชีพในการพัฒนานวัตกรรมการศึกษาอย่างแท้จริง ขอแสดงความยินดีอย่างยิ่ง และขอเชิญชวนให้ท่านก้าวสู่บทบาทผู้นำทางวิชาการ (Academic Leader) เพื่อขยายผลองค์ความรู้แก่เพื่อนครูในเครือข่าย';
+      } else if (grandTotal >= 75) {
+        levelLabel = 'ดีมาก'; levelColor = '#0f4c81';
+        levelMsg = 'ผลการประเมินตนเองของท่านอยู่ในระดับ <strong>ดีมาก</strong> แสดงให้เห็นถึงศักยภาพและความพร้อมในระดับสูง การที่ท่านสามารถพัฒนานวัตกรรมมาถึงระดับนี้ได้ นับเป็นความสำเร็จที่น่าภาคภูมิใจอย่างยิ่ง และเป็นหลักฐานเชิงประจักษ์ถึงความเป็นครูมืออาชีพ';
+      } else if (grandTotal >= 60) {
+        levelLabel = 'ดี'; levelColor = '#856404';
+        levelMsg = 'ผลการประเมินตนเองของท่านอยู่ในระดับ <strong>ดี</strong> ซึ่งถือเป็นจุดเริ่มต้นที่มีคุณค่า การพัฒนางานที่ผ่านมาแสดงถึงความตั้งใจและความรับผิดชอบต่อวิชาชีพ หากท่านสามารถเสริมส่วนที่ยังขาดได้ เชื่อมั่นว่าผลงานจะเข้าสู่ระดับดีมากได้ไม่ยาก';
+      } else {
+        levelLabel = 'พอใช้ — ต้องพัฒนาเพิ่มเติม'; levelColor = '#721c24';
+        levelMsg = 'ผลการประเมินตนเองอยู่ในระดับที่ยังต้องการการพัฒนาเพิ่มเติม อย่างไรก็ตาม กระบวนการประเมินตนเองนี้คือจุดเริ่มต้นที่สำคัญที่สุด การรู้จักตนเองอย่างถ่องแท้ คือหัวใจของการพัฒนาอย่างยั่งยืน ขอให้มีกำลังใจและใช้ข้อเสนอแนะด้านล่างเป็นแผนที่นำทาง';
+      }
+
+      // ── จุดเด่น (criteria ที่ได้ >= 80%) ──────────────────────────────────
+      const strengths = allRows.filter(r => r.maxScore > 0 && (r.score / r.maxScore) >= 0.8);
+      let strengthsHtml = '';
+      if (strengths.length > 0) {
+        const items = strengths.map(r => `<li><strong>${r.title}:</strong> ท่านได้แสดงให้เห็นถึงความสมบูรณ์ในระดับสูง (${r.score.toFixed(1)} / ${r.maxScore.toFixed(1)} คะแนน) ซึ่งเป็นต้นทุนทางวิชาชีพที่มีคุณค่า</li>`).join('');
+        strengthsHtml = `<div class="pr-rec-section">
+          <div class="pr-rec-section-title">🌟 จุดเด่นและความสำเร็จที่น่าภาคภูมิใจ</div>
+          <ul>${items}</ul>
+        </div>`;
+      }
+
+      // ── ประเด็นที่ควรพัฒนา (criteria ที่ได้ < 60%) ──────────────────────
+      const weakAreas = allRows.filter(r => r.maxScore > 0 && (r.score / r.maxScore) < 0.6);
+      let weakHtml = '';
+      if (weakAreas.length > 0) {
+        const items = weakAreas.map(r => {
+          const pct = Math.round((r.score / r.maxScore) * 100);
+          return `<li><strong>${r.title}</strong> (ร้อยละ ${pct} ของคะแนนเต็ม): ยังมีพื้นที่สำหรับการพัฒนาที่ชัดเจน ขอแนะนำให้ทบทวนรายการตรวจสอบ (Checklist) ในหมวดนี้อย่างละเอียดและวางแผนดำเนินการเป็นลำดับขั้น</li>`;
+        }).join('');
+        weakHtml = `<div class="pr-rec-section">
+          <div class="pr-rec-section-title">📌 ประเด็นที่ควรพัฒนาเพิ่มเติมเป็นลำดับแรก</div>
+          <ul>${items}</ul>
+        </div>`;
+      }
+
+      // ── ข้อเสนอแนะเชิงปฏิบัติ ────────────────────────────────────────────
+      const actionItems = [];
+
+      if (!passLevel1) {
+        actionItems.push('เร่งดำเนินการให้ครบถ้วนตามเกณฑ์เบื้องต้นระยะที่ 1 โดยเฉพาะการจัดทำเอกสารที่ยังขาดหายไป เพื่อเป็นฐานรองรับการประเมินในขั้นตอนต่อไป');
+      }
+      if (p2Pct < 70) {
+        actionItems.push('ทบทวนความสมบูรณ์ของเล่มรายงานนวัตกรรม (ส่วนที่ 2) โดยใช้กรอบการเขียนรายงานวิจัยในชั้นเรียน (Action Research) หรือ PDCA Model เป็นแนวทางในการจัดระเบียบเนื้อหา');
+        actionItems.push('ขอให้ศึกษานิเทศก์หรือครูพี่เลี้ยง (Mentor) ช่วยอ่านและให้ข้อมูลป้อนกลับ (Feedback) ต่อเล่มรายงาน ก่อนนำเสนอต่อคณะกรรมการประเมิน');
+      }
+      if (p3Pct < 70) {
+        actionItems.push('พัฒนาทักษะการนำเสนอและการจัดนิทรรศการ (ส่วนที่ 3) โดยฝึกการเล่าเรื่อง (Storytelling) ผลลัพธ์การเรียนรู้ของผู้เรียน พร้อมเตรียมสื่อและหลักฐานเชิงประจักษ์ให้ครบถ้วน');
+        actionItems.push('ลองซักซ้อมการนำเสนอกับเพื่อนครูหรือผู้บริหาร เพื่อรับ Feedback และปรับปรุงก่อนวันประเมินจริง');
+      }
+      if (grandTotal >= 75) {
+        actionItems.push('ต่อยอดความสำเร็จโดยนำผลงานไปเผยแพร่ในเวทีวิชาการ เช่น การนำเสนอในการประชุมครู PLC การเขียนบทความทางวิชาการ หรือการแบ่งปันในชุมชนการเรียนรู้ทางวิชาชีพ (PLC)');
+      }
+      actionItems.push('บันทึกกระบวนการพัฒนานวัตกรรมอย่างสม่ำเสมอ เพื่อสร้างฐานข้อมูลหลักฐานเชิงประจักษ์ (Evidence-based Practice) ที่พร้อมใช้ในการประเมินและการพัฒนารอบต่อไป');
+      actionItems.push('ใช้วัฏจักรการประเมินเพื่อพัฒนา (Assessment for Learning Cycle) โดยนำผลการประเมินตนเองครั้งนี้เป็นจุดตั้งต้น กำหนดเป้าหมายที่ท้าทายแต่ทำได้จริง แล้ววัดผลอีกครั้งในระยะ 4-6 สัปดาห์');
+
+      const actionHtml = `<div class="pr-rec-section">
+        <div class="pr-rec-section-title">💡 แนวทางการพัฒนาเชิงปฏิบัติ (Assessment for Learning)</div>
+        <ul>${actionItems.map(a => `<li>${a}</li>`).join('')}</ul>
+      </div>`;
+
+      return `
+        <div class="pr-rec-box">
+          <div class="pr-rec-header">📋 ข้อเสนอแนะเพื่อการพัฒนาคุณภาพนวัตกรรม — Assessment for Learning</div>
+          <div class="pr-rec-overall">
+            <span style="color:${levelColor};font-weight:700">ระดับคุณภาพ: ${levelLabel}</span><br/>
+            ${levelMsg}
+          </div>
+          ${strengthsHtml}
+          ${weakHtml}
+          ${actionHtml}
+        </div>`;
+    }
+
+    // Execute PDF Export via browser window.print() — full Thai font support
+    function executePDFExport() {
+      closePdfConfirmModal();
+
+      // Gather data
+      const nameVal   = appState.userInfo.name.trim()   || 'ไม่ได้ระบุ';
+      const schoolVal = appState.userInfo.school.trim() || 'ไม่ได้ระบุ';
+      const deptVal   = appState.userInfo.dept.trim()   || 'ไม่ได้ระบุ';
+      const options   = { year: 'numeric', month: 'long', day: 'numeric' };
+      const dateVal   = new Date().toLocaleDateString('th-TH', options);
+
+      // Check pass/fail level 1
+      let passLevel1 = true;
+      for (let i = 1; i <= 7; i++) {
+        if (!appState.part1[`p1_${i}`]) passLevel1 = false;
+      }
+
+      // Calculate part 2 & 3 scores
+      let p2Total = 0, p3Total = 0;
+      const p2Rows = [];
+      PART2_CRITERIA.forEach((cat, idx) => {
+        let cnt = 0;
+        cat.items.forEach((_, j) => { if (appState.part2[`${cat.id}_${j}`]) cnt++; });
+        const score = cnt * cat.weight;
+        p2Total += score;
+        p2Rows.push({ num: idx + 1, title: cat.title, weight: cat.weight, score, maxScore: cat.weight * 5 });
+      });
+      const p3Rows = [];
+      PART3_CRITERIA.forEach((cat, idx) => {
+        let cnt = 0;
+        cat.items.forEach((_, j) => { if (appState.part3[`${cat.id}_${j}`]) cnt++; });
+        const score = cnt * cat.weight;
+        p3Total += score;
+        p3Rows.push({ num: idx + 1, title: cat.title, weight: cat.weight, score, maxScore: cat.weight * 5 });
+      });
+      const grandTotal = p2Total + p3Total;
+
+      // Build recommendations
+      const recommendationsHtml = buildRecommendations(passLevel1, p2Total, p3Total, grandTotal, p2Rows, p3Rows);
+
+      // Build table rows HTML
+      let p2RowsHtml = p2Rows.map((r, i) => `
+        <tr class="${i % 2 === 0 ? 'shade' : ''}">
+          <td style="text-align:center;width:32px">${r.num}</td>
+          <td>${r.title}</td>
+          <td style="text-align:center;width:70px">x ${r.weight}</td>
+          <td style="text-align:right;width:80px;font-weight:700">${r.score.toFixed(1)} / ${r.maxScore.toFixed(1)}</td>
+        </tr>`).join('');
+
+      let p3RowsHtml = p3Rows.map((r, i) => `
+        <tr class="${i % 2 === 0 ? 'shade' : ''}">
+          <td style="text-align:center;width:32px">${r.num}</td>
+          <td>${r.title}</td>
+          <td style="text-align:center;width:70px">x ${r.weight}</td>
+          <td style="text-align:right;width:80px;font-weight:700">${r.score.toFixed(1)} / ${r.maxScore.toFixed(1)}</td>
+        </tr>`).join('');
+
+      const statusClass = passLevel1 ? 'pr-status-pass' : 'pr-status-fail';
+      const statusText  = passLevel1
+        ? '✔ สถานะเกณฑ์ส่งเอกสารเบื้องต้น (ระยะที่ 1): ผ่านเกณฑ์เบื้องต้นตามกำหนดแล้ว'
+        : '✘ สถานะเกณฑ์ส่งเอกสารเบื้องต้น (ระยะที่ 1): ยังไม่ผ่านเกณฑ์เบื้องต้น';
+
+      // Build or update the #print-report div
+      let printDiv = document.getElementById('print-report');
+      if (!printDiv) {
+        printDiv = document.createElement('div');
+        printDiv.id = 'print-report';
+        printDiv.style.display = 'none';
+        document.body.appendChild(printDiv);
+      }
+
+      printDiv.innerHTML = `
+        <div class="pr-header">
+          <h1>รายงานผลการประเมินตนเองเพื่อเตรียมความพร้อมรับการประเมินนวัตกรรมการศึกษา</h1>
+          <p>ประจำปีงบประมาณ พ.ศ. 2569</p>
+        </div>
+
+        <div class="pr-info-box">
+          <div class="pr-info-row">
+            <span class="pr-info-label">ชื่อ-นามสกุล:</span>
+            <span class="pr-info-value">${nameVal}</span>
+            <span class="pr-info-label" style="min-width:50px">วันที่:</span>
+            <span class="pr-info-value">${dateVal}</span>
+          </div>
+          <div class="pr-info-row">
+            <span class="pr-info-label">โรงเรียน:</span>
+            <span class="pr-info-value">${schoolVal}</span>
+          </div>
+          <div class="pr-info-row">
+            <span class="pr-info-label">ประเภทนวัตกรรม:</span>
+            <span class="pr-info-value">${deptVal}</span>
+          </div>
+        </div>
+
+        <div class="pr-score-box">
+          <div class="pr-score-cell">
+            <div class="pr-score-num">${p2Total.toFixed(1)} / 60</div>
+            <div class="pr-score-label">ส่วนที่ 2: คะแนนเล่มรายงาน</div>
+          </div>
+          <div class="pr-score-cell">
+            <div class="pr-score-num">${p3Total.toFixed(1)} / 40</div>
+            <div class="pr-score-label">ส่วนที่ 3: คะแนนนิทรรศการ</div>
+          </div>
+          <div class="pr-score-cell">
+            <div class="pr-score-num" style="font-size:18pt">${grandTotal.toFixed(1)} / 100</div>
+            <div class="pr-score-label">คะแนนรวมสุทธิ</div>
+          </div>
+        </div>
+
+        <div class="${statusClass}">${statusText}</div>
+
+        <div class="pr-section-title">สรุปผลระดับความพร้อมและการประเมินตนเองรายองค์ประกอบ</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:32px">ที่</th>
+              <th>ส่วนการประเมิน / องค์ประกอบ</th>
+              <th style="width:70px;text-align:center">น้ำหนัก</th>
+              <th style="width:80px;text-align:right">คะแนน</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="sub-header">
+              <td colspan="4">ส่วนที่ 2: ความสมบูรณ์ของเอกสารรายงาน (คะแนนเต็ม 60 คะแนน)</td>
+            </tr>
+            ${p2RowsHtml}
+            <tr class="sub-header">
+              <td colspan="4">ส่วนที่ 3: นิทรรศการและการนำเสนอหน้างาน (คะแนนเต็ม 40 คะแนน)</td>
+            </tr>
+            ${p3RowsHtml}
+            <tr class="summary-row">
+              <td colspan="3" style="text-align:right">รวมคะแนนส่วนที่ 2 เล่มรายงาน:</td>
+              <td style="text-align:right">${p2Total.toFixed(1)} / 60.0</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="3" style="text-align:right">รวมคะแนนส่วนที่ 3 นิทรรศการและนำเสนอ:</td>
+              <td style="text-align:right">${p3Total.toFixed(1)} / 40.0</td>
+            </tr>
+            <tr class="summary-total">
+              <td colspan="3" style="text-align:right">คะแนนประเมินตนเองรวมสุทธิ (เต็ม 100 คะแนน):</td>
+              <td style="text-align:right">${grandTotal.toFixed(1)} / 100.0</td>
+            </tr>
+          </tbody>
+        </table>
+
+        ${recommendationsHtml}
+
+        <div class="pr-sig">
+          <div class="pr-sig-block">
+            <div class="pr-sig-line"></div>
+            <div>ลงชื่อ .................................................. ผู้รายงาน</div>
+            <div style="margin-top:4px">(..................................................)</div>
+            <div class="pr-sig-label">ครูผู้เสนอนวัตกรรม</div>
+          </div>
+          <div class="pr-sig-block">
+            <div class="pr-sig-line"></div>
+            <div>ลงชื่อ .................................................. ผู้รับรอง</div>
+            <div style="margin-top:4px">(..................................................)</div>
+            <div class="pr-sig-label">ผู้อำนวยการโรงเรียน</div>
+          </div>
+        </div>
+      `;
+
+      // Trigger browser print dialog
+      setTimeout(() => {
+        window.print();
+      }, 200);
+    }
+
+  </script>
+</body>
+</html>

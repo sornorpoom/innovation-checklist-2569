@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบประเมินตนเองนวัตกรรมการศึกษา 2569</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Sarabun & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#16a34a',
+                            600: '#15803d',
+                            700: '#166534',
+                            900: '#14532d',
+                        },
+                        indigo: {
+                            50: '#eef2ff',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        }
+                    },
+                    fontFamily: {
+                        sarabun: ['Sarabun', 'sans-serif'],
+                        kanit: ['Kanit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f8fafc;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Kanit', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            body {
+                background-color: white !important;
+            }
+            .card-shadow {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-md">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">CM1 Innovation 2026</h1>
+                        <p class="text-xs text-slate-400 hidden sm:block">ระบบประเมินตนเองนวัตกรรมการศึกษาสู่ความเป็นเลิศ</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button id="reset-btn" onclick="resetForm()" class="no-print px-3 py-1.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition-all border border-slate-700 flex items-center gap-1.5">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">ล้างข้อมูล</span>
+                    </button>
+                    <button onclick="window.print()" class="no-print px-3 py-1.5 text-xs font-medium bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">พิมพ์/ส่งออก PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- Header Summary Banner -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden border border-slate-800">
+            <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                <i data-lucide="trophy" class="w-64 h-64 text-yellow-400"></i>
+            </div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-7 space-y-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        คู่มือประเมินคุณภาพ 100 คะแนน
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-heading">
+                        เครื่องมือตรวจสอบความพร้อมนวัตกรรมการศึกษา
+                    </h2>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        ตรวจสอบองค์ประกอบรายงาน 60 คะแนน และนิทรรศการ 40 คะแนน พร้อมวิเคราะห์ผลประเมินอัตโนมัติ
+                    </p>
+                </div>
+                <div class="md:col-span-5 flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 justify-end">
+                    <div class="bg-slate-800/80 backdrop-blur-md rounded-xl p-4 border border-slate-700/60 text-center flex-1">
+                        <span class="text-xs text-slate-400 block font-medium">คะแนนรวมประเมินตนเอง</span>
+                        <div class="text-3xl font-bold font-heading text-yellow-400 my-1" id="banner-score">0 <span class="text-sm text-slate-400 font-normal">/ 100</span></div>
+                        <span id="banner-medal-badge" class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-700 text-slate-300">
+                            ยังไม่อนุมัติการประเมิน
+                        </span>
+                    </div>
+                    <div class="bg-slate-800/80 backdrop-blur-md rounded-xl p-4 border border-slate-700/60 text-center flex-1">
+                        <span class="text-xs text-slate-400 block font-medium">สถานะเกณฑ์เบื้องต้น</span>
+                        <div id="banner-gatekeeper-status" class="text-lg font-bold font-heading text-rose-400 my-1.5 flex items-center justify-center gap-1">
+                            <i data-lucide="x-circle" class="w-5 h-5"></i>
+                            <span>ยังไม่ผ่านคัดกรอง</span>
+                        </div>
+                        <span class="text-[11px] text-slate-400 block">ต้องผ่านครบทั้ง 7 ข้อ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-1.5 no-print">
+            <nav class="grid grid-cols-2 sm:grid-cols-4 gap-1" aria-label="Tabs">
+                <button onclick="switchTab('gatekeeper')" id="tab-gatekeeper" class="tab-btn active px-4 py-3 text-xs sm:text-sm font-semibold rounded-lg flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white shadow-sm">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>1. ด่านคัดกรอง (Pass/Fail)</span>
+                </button>
+                <button onclick="switchTab('report')" id="tab-report" class="tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    <span>2. เล่มรายงาน (60 คะแนน)</span>
+                </button>
+                <button onclick="switchTab('exhibition')" id="tab-exhibition" class="tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="presentation" class="w-4 h-4"></i>
+                    <span>3. นิทรรศการ (40 คะแนน)</span>
+                </button>
+                <button onclick="switchTab('result')" id="tab-result" class="tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                    <span>4. สรุปผล & ข้อเสนอแนะ</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- TAB 1: GATEKEEPER CHECKLIST -->
+        <div id="content-gatekeeper" class="tab-content space-y-4">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-900 text-sm flex items-start gap-3">
+                <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                <div>
+                    <h4 class="font-bold font-heading text-amber-900">เกณฑ์เบื้องต้นในการพิจารณา (Gatekeeper: Pass / Fail)</h4>
+                    <p class="text-xs text-amber-800 mt-0.5">
+                        หากมีผลการพิจารณา <strong class="text-rose-700">"ไม่ผ่าน"</strong> ในรายการพิจารณาใดรายการหนึ่ง คณะกรรมการจะไม่พิจารณาประเมินคุณภาพของนวัตกรรมในส่วนที่ 2 และ 3
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-800 font-heading flex items-center gap-2">
+                        <i data-lucide="check-square" class="w-5 h-5 text-indigo-600"></i>
+                        รายการตรวจสอบคุณสมบัติเบื้องต้น (7 ข้อ)
+                    </h3>
+                    <div class="text-xs text-slate-500 font-medium">
+                        ผ่านแล้ว <span id="gatekeeper-count" class="font-bold text-indigo-600">0</span> / 7 ข้อ
+                    </div>
+                </div>
+                <div class="divide-y divide-slate-100" id="gatekeeper-list">
+                    <!-- Dynamic JS Injection for Gatekeepers -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: REPORT CHECKLIST (60 Points) -->
+        <div id="content-report" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900 text-white p-4 rounded-xl flex items-center justify-between shadow-sm">
+                <div>
+                    <h3 class="font-bold font-heading text-lg">ส่วนที่ 2: เอกสารรายงานการพัฒนานวัตกรรม</h3>
+                    <p class="text-xs text-slate-300">คะแนนเต็ม 60 คะแนน (ด้านคุณภาพ 45 คะแนน + ด้านการเป็นประโยชน์ 15 คะแนน)</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-2xl font-bold font-heading text-yellow-400" id="report-score-total">0</span>
+                    <span class="text-xs text-slate-400 block">/ 60 คะแนน</span>
+                </div>
+            </div>
+
+            <div class="space-y-4" id="report-criteria-container">
+                <!-- Dynamic Criteria Injection -->
+            </div>
+        </div>
+
+        <!-- TAB 3: EXHIBITION CHECKLIST (40 Points) -->
+        <div id="content-exhibition" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900 text-white p-4 rounded-xl flex items-center justify-between shadow-sm">
+                <div>
+                    <h3 class="font-bold font-heading text-lg">ส่วนที่ 3: การจัดนิทรรศการแลกเปลี่ยนเรียนรู้</h3>
+                    <p class="text-xs text-slate-300">คะแนนเต็ม 40 คะแนน (หลักฐาน 15 คะแนน + นิทรรศการ 10 คะแนน + การนำเสนอ 10 คะแนน + ความสอดคล้อง 5 คะแนน)</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-2xl font-bold font-heading text-yellow-400" id="exhibition-score-total">0</span>
+                    <span class="text-xs text-slate-400 block">/ 40 คะแนน</span>
+                </div>
+            </div>
+
+            <div class="space-y-4" id="exhibition-criteria-container">
+                <!-- Dynamic Criteria Injection -->
+            </div>
+        </div>
+
+        <!-- TAB 4: RESULT DASHBOARD & RECOMMENDATIONS -->
+        <div id="content-result" class="tab-content hidden space-y-6">
+            <!-- Alert Header for Gatekeeper Status -->
+            <div id="gatekeeper-alert-box" class="p-4 rounded-xl border flex items-start gap-3 transition-all">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Score Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">คะแนนเล่มรายงาน</span>
+                    <div class="my-2 flex items-baseline justify-between">
+                        <span class="text-3xl font-bold font-heading text-slate-900" id="res-report-score">0</span>
+                        <span class="text-xs text-slate-500 font-medium">จาก 60 คะแนน</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                        <div id="bar-report-percent" class="bg-indigo-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">คะแนนจัดนิทรรศการ</span>
+                    <div class="my-2 flex items-baseline justify-between">
+                        <span class="text-3xl font-bold font-heading text-slate-900" id="res-exhibition-score">0</span>
+                        <span class="text-xs text-slate-500 font-medium">จาก 40 คะแนน</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                        <div id="bar-exhibition-percent" class="bg-teal-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">คะแนนรวมสุทธิ</span>
+                    <div class="my-2 flex items-baseline justify-between">
+                        <span class="text-3xl font-bold font-heading text-indigo-600" id="res-total-score">0</span>
+                        <span class="text-xs text-slate-500 font-medium">จาก 100 คะแนน</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                        <div id="bar-total-percent" class="bg-indigo-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">ระดับเหรียญรางวัลคาดการณ์</span>
+                    <div class="my-2">
+                        <span class="text-lg font-bold font-heading block" id="res-medal-title">-</span>
+                        <span class="text-xs text-slate-500" id="res-medal-desc">รอผลการประเมิน</span>
+                    </div>
+                    <div id="res-medal-tag" class="inline-block text-center text-xs px-2.5 py-1 rounded-md font-medium bg-slate-100 text-slate-600">
+                        -
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Bar Chart Section -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+                    <div>
+                        <h3 class="font-bold font-heading text-slate-900 text-lg flex items-center gap-2">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-600"></i>
+                            แผนภูมิเปรียบเทียบคะแนนประเมินตนเองเทียบกับคะแนนเต็ม (Bar Chart Analysis)
+                        </h3>
+                        <p class="text-xs text-slate-500">แสดงผลคะแนนในแต่ละองค์ประกอบหลักเพื่อวิเคราะห์จุดแข็งและจุดที่ต้องพัฒนาเพิ่มเติม</p>
+                    </div>
+                </div>
+                <div class="relative w-full h-[320px] sm:h-[380px] pt-2">
+                    <canvas id="scoreBarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Targeted Recommendations for Improvement -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="font-bold font-heading text-slate-900 text-lg flex items-center gap-2">
+                        <i data-lucide="lightbulb" class="w-5 h-5 text-amber-500"></i>
+                        ข้อเสนอแนะเชิงลึกเพื่อการพัฒนาสู่เหรียญทอง (Actionable Recommendations)
+                    </h3>
+                    <span class="text-xs font-medium bg-amber-50 text-amber-700 px-3 py-1 rounded-full border border-amber-200">
+                        วิเคราะห์จากรายการที่ยังไม่ได้ติ๊ก
+                    </span>
+                </div>
+
+                <div id="recommendations-list" class="space-y-3">
+                    <!-- Dynamic Recommendation Injection -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-10 border-t border-slate-800 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>โครงการมหกรรมนวัตกรรมการศึกษาสู่ความเป็นเลิศ</p>
+         </div>
+    </footer>
+
+    <script>
+        // Data Structure definition
+        const gatekeeperData = [
+            { id: "g1", text: "1.1 กำหนดเวลาส่ง: จัดส่งเอกสารรายงานถึง สำนักงานเขตพื้นที่การศึกษา ภายในเวลาที่กำหนด" },
+            { id: "g2", text: "1.2 จำนวนหน้า: เล่มรายงานมีจำนวนหน้ารวมไม่เกิน 50 หน้า (ส่วนเนื้อหาไม่เกิน 30 หน้า, ภาคผนวกไม่เกิน 20 หน้า)" },
+            { id: "g3", text: "1.3 ฟอนต์และขนาด: ใช้แบบตัวพิมพ์ TH Sarabun PSK ขนาด 16 พอยท์" },
+            { id: "g4", text: "1.4 ระยะขอบกระดาษ: ขอบซ้าย 1.5 นิ้ว, ขอบขวา 1.0 นิ้ว, ขอบบน 1.5 นิ้ว, ขอบล่าง 1.0 นิ้ว" },
+            { id: "g5", text: "1.5 อินโฟกราฟฟิก: จัดทำแผนภาพนวัตกรรม (Infographic) 1 หน้า ขนาด A4 แยกออกจากเล่มรายงาน" },
+            { id: "g6", text: "1.6 แบบรับรองคุณภาพ: แนบแบบรับรองคุณภาพรายงานฯ (ตามแบบฟอร์มภาคผนวก) แยกออกจากเล่มรายงาน" },
+            { id: "g7", text: "1.7 ไฟล์ดิจิทัล: จัดเตรียมไฟล์ PDF ของเล่มรายงานและ Infographic พร้อมส่งในระบบออนไลน์" }
+        ];
+
+        const reportCriteria = [
+            {
+                id: "r1",
+                title: "1. ความเป็นมาและความสำคัญของการพัฒนานวัตกรรม",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "1.1 เชื่อมโยงเชิงนโยบาย (ยุทธศาสตร์ชาติ / นโยบาย สพฐ. / แผนพัฒนาสถานศึกษา) และอธิบายบริบทโรงเรียน-ชุมชนอย่างเป็นระบบ",
+                    "1.2 ระบุปัญหาและความจำเป็นโดยใช้หลักฐานเชิงประจักษ์ (สถิติ ผลสำรวจ) และกำหนดกลุ่มเป้าหมายชัดเจน",
+                    "1.3 เชื่อมโยงกรอบแนวคิด/ทฤษฎีรองรับ และระบุช่องว่างองค์ความรู้ (Research Gap)",
+                    "1.4 มีหลักฐานงานวิจัยหรือกรณีศึกษาอ้างอิงสนับสนุนความจำเป็น พร้อมระบุประโยชน์คาดหวังอย่างกระชับ",
+                    "1.5 มีการอ้างอิงทางวิชาการในเนื้อหา (In-text Citation) ถูกต้อง และมีรายการบรรณานุกรมท้ายเล่มตามมาตรฐาน"
+                ],
+                tip: "เพิ่มการระบุ Research Gap และอ้างอิงงานวิจัยที่เกี่ยวข้อง (In-text citation) พร้อมเขียนสถิติยืนยันสภาพปัญหาในบริบทของโรงเรียนให้ชัดเจน"
+            },
+            {
+                id: "r2",
+                title: "2. วัตถุประสงค์และเป้าหมายของการพัฒนา",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "2.1 วัตถุประสงค์สอดคล้องกับสภาพปัญหาและความต้องการในการพัฒนา",
+                    "2.2 วัตถุประสงค์มีความชัดเจน เป็นรูปธรรม",
+                    "2.3 ระบุเป้าหมายเชิงปริมาณและเชิงคุณภาพอย่างชัดเจน วัดและประเมินผลได้",
+                    "2.4 วัตถุประสงค์และเป้าหมายแสดงถึงการเพิ่มประสิทธิภาพของการปฏิบัติงาน",
+                    "2.5 ระบุระยะเวลาการดำเนินงานไว้อย่างชัดเจน"
+                ],
+                tip: "กำหนดเป้าหมายเชิงปริมาณ (เช่น ร้อยละของผู้เรียน) และเชิงคุณภาพที่วัดได้จริง พร้อมระบุห้วงเวลาการดำเนินงานชัดเจน"
+            },
+            {
+                id: "r3",
+                title: "3. หลักการ ทฤษฎี แนวคิดในการพัฒนา",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "3.1 มีการศึกษาวรรณกรรม เอกสาร หลักการ แนวคิด หรือทฤษฎีที่เกี่ยวข้องอย่างเหมาะสม",
+                    "3.2 มีการวิเคราะห์และอธิบายความสัมพันธ์ระหว่างแนวคิด/ทฤษฎี กับปัญหาที่ต้องการพัฒนา",
+                    "3.3 มีการสังเคราะห์แนวคิดหรือทฤษฎีจากหลายแหล่งอย่างมีเหตุผล เพื่อรองรับการออกแบบ",
+                    "3.4 มีการจัดเรียงแนวคิดและสร้างกรอบแนวคิด (Conceptual Framework) ชัดเจน เป็นระบบ",
+                    "3.5 อ้างอิงแหล่งข้อมูลทางวิชาการถูกต้องและครบถ้วนตามรูปแบบที่กำหนด"
+                ],
+                tip: "จัดทำแผนภาพกรอบแนวคิดการวิจัย/พัฒนา (Conceptual Framework) สังเคราะห์จากทฤษฎีมากกว่า 2 แหล่ง"
+            },
+            {
+                id: "r4",
+                title: "4. ขั้นตอนหรือวิธีการสร้าง/พัฒนานวัตกรรม (น้ำหนัก ×2)",
+                maxScore: 10,
+                weight: 2,
+                items: [
+                    "4.1 กำหนดขั้นตอนหรือกระบวนการพัฒนาอย่างเป็นระบบ อิงหลักการ/ทฤษฎีที่สอดคล้องกับบริบท",
+                    "4.2 ระบุกลุ่มตัวอย่าง เครื่องมือ และวิธีการวิเคราะห์ข้อมูลอย่างชัดเจน",
+                    "4.3 ดำเนินการพัฒนาโดยใช้วิธีการที่เหมาะสมกับบริบท (เทคโนโลยี / กระบวนการเรียนรู้ / การบริหาร)",
+                    "4.4 ระบุขั้นตอนครอบคลุมตั้งแต่ การวิเคราะห์ปัญหา -> ออกแบบ -> ทดลองใช้ -> ปรับปรุงพัฒนา",
+                    "4.5 มีผู้เชี่ยวชาญมีส่วนร่วมในขั้นออกแบบ ตรวจสอบเครื่องมือ ทดลองใช้ และให้ข้อเสนอแนะ"
+                ],
+                tip: "ระบุรายนามผู้เชี่ยวชาญ (IOC/ประเมินเครื่องมือ) และเขียนลำดับขั้น ADDIE หรือ PDCA ให้เห็นวงจรการพัฒนาจริง"
+            },
+            {
+                id: "r5",
+                title: "5. กระบวนการหาคุณภาพของนวัตกรรม",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "5.1 ตรวจสอบคุณภาพโดยผู้เชี่ยวชาญหรือกระบวนการมีส่วนร่วม (PLC / ทีมบริหาร) และนำผลไปปรับปรุงก่อนใช้จริง",
+                    "5.2 มีการทดลองใช้ (Tryout) หรือใช้จริงในบริบทเป้าหมาย พร้อมเก็บข้อมูลผลลัพธ์",
+                    "5.3 ประเมินประสิทธิภาพตามเกณฑ์สากล (เช่น สูตร E1/E2, E.I. หรือ SWOT/PDCA ในงานบริหาร)",
+                    "5.4 ประเมินประสิทธิผล (เปรียบเทียบผลสัมฤทธิ์ก่อน-หลังเรียน / ความพึงพอใจ / ผลกระทบเชิงระบบ)",
+                    "5.5 มีหลักฐานแสดงการปรับปรุง พัฒนาต่อยอดนวัตกรรม"
+                ],
+                tip: "แสดงสูตรคำนวณประสิทธิภาพ E1/E2 หรือดัชนีประสิทธิผล (E.I.) หรือผล SWOT Analysis ให้เป็นรูปธรรม"
+            },
+            {
+                id: "r6",
+                title: "6. ผลที่เกิดขึ้นจากการใช้หรือการพัฒนานวัตกรรม (น้ำหนัก ×2)",
+                maxScore: 10,
+                weight: 2,
+                items: [
+                    "6.1 มีหลักฐานแสดงการนำนวัตกรรมไปใช้จริงในกิจกรรมการเรียนรู้หรือการบริหาร ตรงตามวัตถุประสงค์",
+                    "6.2 มีผลการดำเนินงานที่สะท้อนความสำเร็จตามตัวชี้วัด ทั้งเชิงพฤติกรรมและผลสัมฤทธิ์ที่วัดได้",
+                    "6.3 มีหลักฐานความพึงพอใจของผู้เรียน ผู้ปกครอง ครู หรือบุคลากร ต่อการใช้นวัตกรรม",
+                    "6.4 รายงานผลที่เกิดขึ้นอย่างเป็นระบบ (ด้านความรู้ ทักษะ สมรรถนะ เจตคติ หรือประสิทธิภาพการทำงาน)",
+                    "6.5 มีแนวทางการวิเคราะห์ข้อค้นพบ ข้อเสนอแนะในการขยายผล และสะท้อนความเป็นไปได้ในการประยุกต์ใช้ในบริบทอื่น"
+                ],
+                tip: "แนบตารางเปรียบเทียบผลสัมฤทธิ์ก่อน-หลังเรียน และกราฟแสดงระดับความพึงพอใจจากผู้รับบริการ/ผู้เรียน"
+            },
+            {
+                id: "r7",
+                title: "7. การเผยแพร่นวัตกรรม",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "7.1 เผยแพร่นวัตกรรมสู่หน่วยงานหรือบุคคลภายนอกสถานศึกษา",
+                    "7.2 ใช้รูปแบบการเผยแพร่ที่หลากหลาย (เวทีวิชาการ, สื่อออนไลน์, คู่มือ, อบรม)",
+                    "7.3 มีหลักฐานการเผยแพร่ที่ชัดเจนและตรวจสอบได้ (ภาพถ่าย, ลิงก์, ข่าวประชาสัมพันธ์, หนังสือรับรอง)",
+                    "7.4 ได้รับการยอมรับจากภายนอก โดยมีหลักฐานว่ามีผู้นำแนวปฏิบัติ/นวัตกรรมไปใช้จริง",
+                    "7.5 มีผลลัพธ์ที่เกิดจากการเผยแพร่ เกิดการเปลี่ยนแปลงในกลุ่มเป้าหมาย มีการขยายผลหรือสร้างเครือข่าย"
+                ],
+                tip: "รวบรวมเกียรติบัตร ลิงก์เว็บไซต์/QR Code หนังสือเชิญเป็นวิทยากร หรือบันทึกข้อตกลงขยายผลสู่นอกโรงเรียน"
+            },
+            {
+                id: "r8",
+                title: "8. ประโยชน์ของนวัตกรรม (น้ำหนัก ×3)",
+                maxScore: 15,
+                weight: 3,
+                items: [
+                    "8.1 เห็นประโยชน์ชัดเจนต่อผู้เรียน ครู บุคลากร และสถานศึกษา มีพัฒนาการด้านสมรรถนะ/พฤติกรรม พร้อมหลักฐานเชิงประจักษ์",
+                    "8.2 สนับสนุนการปรับปรุงระบบบริหารจัดการ หรือกระบวนการจัดการเรียนรู้ของสถานศึกษาอย่างมีประสิทธิภาพ",
+                    "8.3 ยกระดับผลสัมฤทธิ์ทางการเรียน/คุณภาพผู้เรียน หรือยกระดับประสิทธิภาพการบริหารงานของสถานศึกษาอย่างมีข้อมูลยืนยัน",
+                    "8.4 มีศักยภาพในการขยายผล เป็นต้นแบบ หรือประยุกต์ใช้ในสถานศึกษา/ชุมชนอื่นที่มีบริบทคล้ายกันได้",
+                    "8.5 มีคุณค่าทางวิชาการ สามารถสังเคราะห์เป็นองค์ความรู้ใหม่ เผยแพร่เป็นแนวปฏิบัติที่ดี (Best Practice)"
+                ],
+                tip: "เขียนถอดบทเรียน (Lesson Learned) สรุปเป็น Best Practice Model ที่โรงเรียนอื่นสามารถนวัตกรรมไปปรับใช้ได้ทันที"
+            }
+        ];
+
+        const exhibitionCriteria = [
+            {
+                id: "e1",
+                title: "1. หลักฐานการพัฒนานวัตกรรม (น้ำหนัก ×3)",
+                maxScore: 15,
+                weight: 3,
+                items: [
+                    "1.1 มีหลักฐานการวางแผนอย่างเป็นระบบ (รายงานการประชุม, การวิเคราะห์ปัญหา, บันทึก PLC, แผนงาน/โครงการ)",
+                    "1.2 มีหลักฐานชิ้นงานหรือองค์ประกอบนวัตกรรม (ตัวชิ้นงาน, คู่มือการใช้, เอกสารประกอบ, แบบจำลอง)",
+                    "1.3 มีหลักฐานการนำไปใช้จริงในสถานศึกษา (ภาพกิจกรรมชั้นเรียน/งานบริหาร, ตัวอย่างผลงานนักเรียน)",
+                    "1.4 มีหลักฐานการประเมินนวัตกรรมอย่างเป็นระบบ (แบบประเมิน, เครื่องมือเก็บข้อมูล, ตารางวิเคราะห์ผล)",
+                    "1.5 มีหลักฐานการเผยแพร่/แลกเปลี่ยนเรียนรู้ที่ตรวจสอบได้ (ภาพถ่าย, ลิงก์, ข่าว, วารสาร, จดหมายข่าว)"
+                ],
+                tip: "จัดแฟ้มร่องรอย PLC ตัวอย่างชิ้นงานนักเรียนจริง และเล่มคู่มือการใช้งานนวัตกรรมวางไว้หน้าบูธนิทรรศการ"
+            },
+            {
+                id: "e2",
+                title: "2. การจัดแสดงนิทรรศการ (น้ำหนัก ×2)",
+                maxScore: 10,
+                weight: 2,
+                items: [
+                    "2.1 ป้ายนิทรรศการมีองค์ประกอบครบ 5 ส่วน (ชื่อผลงาน, วัตถุประสงค์, ความเป็นมา, ขั้นตอนและผลสำเร็จ, หลักฐานเชิงประจักษ์)",
+                    "2.2 มีการนำเสนอด้วยสื่อหรือเทคโนโลยีหลากหลายประเภทที่เหมาะสม",
+                    "2.3 จัดวางเรียบร้อย สอดคล้องกับเนื้อหา และจัดสรรพื้นที่ได้อย่างเหมาะสม",
+                    "2.4 ประยุกต์ใช้วัสดุอย่างคุ้มค่า ประหยัด และคำนึงถึงความยั่งยืน",
+                    "2.5 ออกแบบนิทรรศการเป็นเอกภาพ มีอัตลักษณ์ที่สื่อสารได้ทันที"
+                ],
+                tip: "ตรวจสอบป้ายนิทรรศการให้มีครบทั้ง 5 หัวข้อหลัก และเน้นใช้วัสดุรีไซเคิล/ประหยัดตามแนวคิดความยั่งยืน"
+            },
+            {
+                id: "e3",
+                title: "3. การนำเสนอ (น้ำหนัก ×2)",
+                maxScore: 10,
+                weight: 2,
+                items: [
+                    "3.1 สื่อสารชัดเจน ถ่ายทอดเนื้อหาดี มีจังหวะเหมาะสม ภาษากระชับ เข้าใจง่าย",
+                    "3.2 ลำดับเนื้อหาอย่างเป็นระบบ ครอบคลุม ที่มา -> วัตถุประสงค์ -> กระบวนการ -> ผลลัพธ์",
+                    "3.3 นำเสนอด้วยความมั่นใจ น้ำเสียง สีหน้า ท่าทาง และบุคลิกภาพเหมาะสมกับเวทีวิชาการ",
+                    "3.4 แสดงความเข้าใจลึกซึ้ง อธิบายหลักการ ทฤษฎี และการนำไปประยุกต์ใช้ได้อย่างถูกต้อง",
+                    "3.5 ตอบคำถามตรงประเด็น มีเหตุผลชัดเจน อ้างอิงข้อมูลสนับสนุน และแสดงทัศนะอย่างเหมาะสม"
+                ],
+                tip: "ฝึกซ้อมพูดนำเสนอความยาว 5-7 นาที เรียงตามลำดับปัญหา-นวัตกรรม-ผลลัพธ์ และซ้อมตอบคำถามเชิงทฤษฎี"
+            },
+            {
+                id: "e4",
+                title: "4. ความสอดคล้องในการนำเสนอกับเอกสารหลักฐาน",
+                maxScore: 5,
+                weight: 1,
+                items: [
+                    "4.1 เนื้อหาที่นำเสนอด้วยวาจา/คลิป ตรงกับข้อมูลในรายงานเอกสารอย่างชัดเจน",
+                    "4.2 เอกสารหลักฐานที่จัดแสดงสามารถยืนยันประเด็นที่นำเสนอได้จริง",
+                    "4.3 การอ้างอิงข้อมูล ตัวเลข หรือคำอธิบายขณะนำเสนอ มีที่มาชัดเจนและตรวจสอบได้ในเอกสารแนบ",
+                    "4.4 สามารถชี้เชื่อมโยงสิ่งที่พูดกับหลักฐานที่จัดแสดงได้ในทันที",
+                    "4.5 สิ่งที่พูดนำเสนอไม่มีความคลาดเคลื่อนจากรายงาน (ไม่ขยายความเกินจริง และไม่ละเว้นสาระสำคัญ)"
+                ],
+                tip: "ฝึกเทคนิค 'พูดไปชี้ไป' ระหว่างนำเสนอ โดยอ้างอิงตัวเลขสถิติแล้วชี้ไปยังตารางสรุปในเอกสารหรือบอร์ดนิทรรศการ"
+            }
+        ];
+
+        // Global State Variable
+        let state = {
+            gatekeeper: {},
+            report: {},
+            exhibition: {}
+        };
+
+        let chartInstance = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            renderGatekeepers();
+            renderCriteria('report-criteria-container', reportCriteria, 'report');
+            renderCriteria('exhibition-criteria-container', exhibitionCriteria, 'exhibition');
+            lucide.createIcons();
+            calculateScores();
+            initChart();
+        });
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm', 'active');
+                btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-sm', 'active');
+            activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+
+            if (tabId === 'result') {
+                updateChart();
+            }
+        }
+
+        function renderGatekeepers() {
+            const container = document.getElementById('gatekeeper-list');
+            container.innerHTML = '';
+            gatekeeperData.forEach((g) => {
+                const isChecked = !!state.gatekeeper[g.id];
+                const div = document.createElement('div');
+                div.className = `p-4 hover:bg-slate-50 transition-colors flex items-start gap-3 cursor-pointer ${isChecked ? 'bg-indigo-50/40' : ''}`;
+                div.onclick = (e) => {
+                    if (e.target.tagName !== 'INPUT') {
+                        const chk = document.getElementById(`chk-${g.id}`);
+                        chk.checked = !chk.checked;
+                        toggleGatekeeper(g.id, chk.checked);
+                    }
+                };
+                div.innerHTML = `
+                    <input type="checkbox" id="chk-${g.id}" ${isChecked ? 'checked' : ''} 
+                        onchange="toggleGatekeeper('${g.id}', this.checked)"
+                        class="mt-1 w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer shrink-0">
+                    <label for="chk-${g.id}" class="text-sm font-medium text-slate-700 cursor-pointer leading-relaxed select-none flex-grow">
+                        ${g.text}
+                    </label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function toggleGatekeeper(id, checked) {
+            state.gatekeeper[id] = checked;
+            saveState();
+            calculateScores();
+            renderGatekeepers();
+        }
+
+        function renderCriteria(containerId, criteriaList, sectionKey) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            criteriaList.forEach((c) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden";
+                
+                const checkedCount = (state[sectionKey][c.id] || []).length;
+                const earnedPoints = checkedCount * c.weight;
+
+                let headerHtml = `
+                    <div class="p-4 sm:p-5 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <h4 class="font-bold text-slate-800 font-heading text-base">${c.title}</h4>
+                            <p class="text-xs text-slate-500">ติ๊กเลือกรายการที่มีหลักฐานเชิงประจักษ์ครบถ้วน (ข้อละ 1 คะแนนย่อย × น้ำหนัก ${c.weight})</p>
+                        </div>
+                        <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-200 text-slate-700">
+                                เลือก <span id="count-${c.id}">${checkedCount}</span>/5 ข้อ
+                            </span>
+                            <span class="text-sm font-bold font-heading px-3 py-1 rounded-lg bg-indigo-100 text-indigo-800">
+                                <span id="score-${c.id}">${earnedPoints}</span> / ${c.maxScore} คะแนน
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                let itemsHtml = `<div class="divide-y divide-slate-100">`;
+                c.items.forEach((itemText, idx) => {
+                    const itemChecked = (state[sectionKey][c.id] || []).includes(idx);
+                    itemsHtml += `
+                        <div class="p-3.5 sm:p-4 hover:bg-slate-50 transition-colors flex items-start gap-3 cursor-pointer ${itemChecked ? 'bg-indigo-50/20' : ''}"
+                             onclick="handleItemClick(event, '${sectionKey}', '${c.id}', ${idx})">
+                            <input type="checkbox" id="chk-${sectionKey}-${c.id}-${idx}" ${itemChecked ? 'checked' : ''}
+                                onchange="toggleItem('${sectionKey}', '${c.id}', ${idx}, this.checked)"
+                                class="mt-0.5 w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer shrink-0">
+                            <label for="chk-${sectionKey}-${c.id}-${idx}" class="text-xs sm:text-sm text-slate-700 cursor-pointer leading-relaxed select-none">
+                                ${itemText}
+                            </label>
+                        </div>
+                    `;
+                });
+                itemsHtml += `</div>`;
+
+                card.innerHTML = headerHtml + itemsHtml;
+                container.appendChild(card);
+            });
+        }
+
+        function handleItemClick(e, sectionKey, critId, itemIdx) {
+            if (e.target.tagName !== 'INPUT') {
+                const chk = document.getElementById(`chk-${sectionKey}-${critId}-${itemIdx}`);
+                chk.checked = !chk.checked;
+                toggleItem(sectionKey, critId, itemIdx, chk.checked);
+            }
+        }
+
+        function toggleItem(sectionKey, critId, itemIdx, checked) {
+            if (!state[sectionKey][critId]) {
+                state[sectionKey][critId] = [];
+            }
+            if (checked) {
+                if (!state[sectionKey][critId].includes(itemIdx)) {
+                    state[sectionKey][critId].push(itemIdx);
+                }
+            } else {
+                state[sectionKey][critId] = state[sectionKey][critId].filter(i => i !== itemIdx);
+            }
+            saveState();
+            calculateScores();
+            
+            // Update individual headers without re-rendering everything
+            const crit = [...reportCriteria, ...exhibitionCriteria].find(x => x.id === critId);
+            if (crit) {
+                const checkedCount = state[sectionKey][critId].length;
+                const earnedPoints = checkedCount * crit.weight;
+                document.getElementById(`count-${critId}`).innerText = checkedCount;
+                document.getElementById(`score-${critId}`).innerText = earnedPoints;
+            }
+        }
+
+        function calculateScores() {
+            // 1. Gatekeeper count
+            const passGatekeeperCount = Object.values(state.gatekeeper).filter(Boolean).length;
+            const isGatekeeperPassed = passGatekeeperCount === 7;
+            document.getElementById('gatekeeper-count').innerText = passGatekeeperCount;
+
+            // 2. Report Score
+            let reportTotal = 0;
+            reportCriteria.forEach(c => {
+                const count = (state.report[c.id] || []).length;
+                reportTotal += count * c.weight;
+            });
+
+            // 3. Exhibition Score
+            let exhibitionTotal = 0;
+            exhibitionCriteria.forEach(c => {
+                const count = (state.exhibition[c.id] || []).length;
+                exhibitionTotal += count * c.weight;
+            });
+
+            const grandTotal = reportTotal + exhibitionTotal;
+
+            // Update UI elements
+            document.getElementById('banner-score').innerHTML = `${grandTotal} <span class="text-sm text-slate-400 font-normal">/ 100</span>`;
+            document.getElementById('report-score-total').innerText = reportTotal;
+            document.getElementById('exhibition-score-total').innerText = exhibitionTotal;
+
+            // Gatekeeper Banner Status
+            const gatekeeperBanner = document.getElementById('banner-gatekeeper-status');
+            if (isGatekeeperPassed) {
+                gatekeeperBanner.className = "text-lg font-bold font-heading text-emerald-400 my-1.5 flex items-center justify-center gap-1";
+                gatekeeperBanner.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5"></i><span>ผ่านคุณสมบัติ</span>`;
+            } else {
+                gatekeeperBanner.className = "text-lg font-bold font-heading text-rose-400 my-1.5 flex items-center justify-center gap-1";
+                gatekeeperBanner.innerHTML = `<i data-lucide="x-circle" class="w-5 h-5"></i><span>ขาดอีก ${7 - passGatekeeperCount} ข้อ</span>`;
+            }
+
+            // Medal Level Calculation
+            let medalBadgeText = "";
+            let medalTitle = "";
+            let medalDesc = "";
+            let badgeStyle = "";
+
+            if (!isGatekeeperPassed) {
+                medalBadgeText = "ติดเงื่อนไขเบื้องต้น (Gatekeeper)";
+                medalTitle = "ยังไม่ผ่านเกณฑ์ส่งผลงาน";
+                medalDesc = "ต้องแก้ไขรายการเบื้องต้นให้ผ่านครบถ้วนก่อน";
+                badgeStyle = "bg-rose-500/20 text-rose-300 border border-rose-500/30";
+            } else if (grandTotal >= 80) {
+                medalBadgeText = "🥇 ระดับเหรียญทอง";
+                medalTitle = "ระดับเหรียญทอง (80 - 100 คะแนน)";
+                medalDesc = "มีสิทธิ์ลุ้นรางวัลชนะเลิศ / รองชนะเลิศในระดับเขตพื้นที่";
+                badgeStyle = "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30";
+            } else if (grandTotal >= 70) {
+                medalBadgeText = "🥈 ระดับเหรียญเงิน";
+                medalTitle = "ระดับเหรียญเงิน (70 - 79 คะแนน)";
+                medalDesc = "ผลงานอยู่ในเกณฑ์ดีมาก สามารถเติมข้อเสนอแนะเพื่อลุ้นเหรียญทองได้";
+                badgeStyle = "bg-slate-300/20 text-slate-200 border border-slate-400/30";
+            } else if (grandTotal >= 50) {
+                medalBadgeText = "🥉 ระดับเหรียญทองแดง";
+                medalTitle = "ระดับเหรียญทองแดง (50 - 69 คะแนน)";
+                medalDesc = "ผลงานผ่านเกณฑ์ขั้นต่ำ ควรปรับปรุงตามข้อเสนอแนะ";
+                badgeStyle = "bg-amber-600/20 text-amber-300 border border-amber-600/30";
+            } else {
+                medalBadgeText = "📜 เกียรติบัตรเข้าร่วม";
+                medalTitle = "ได้รับเกียรติบัตรเข้าร่วมกิจกรรม";
+                medalDesc = "คะแนนรวมยังไม่ถึง 50 คะแนน";
+                badgeStyle = "bg-slate-700 text-slate-300";
+            }
+
+            const badgeElem = document.getElementById('banner-medal-badge');
+            badgeElem.className = `inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full ${badgeStyle}`;
+            badgeElem.innerText = medalBadgeText;
+
+            // Update Result Tab
+            document.getElementById('res-report-score').innerText = reportTotal;
+            document.getElementById('res-exhibition-score').innerText = exhibitionTotal;
+            document.getElementById('res-total-score').innerText = grandTotal;
+
+            document.getElementById('bar-report-percent').style.width = `${(reportTotal / 60) * 100}%`;
+            document.getElementById('bar-exhibition-percent').style.width = `${(exhibitionTotal / 40) * 100}%`;
+            document.getElementById('bar-total-percent').style.width = `${grandTotal}%`;
+
+            document.getElementById('res-medal-title').innerText = medalTitle;
+            document.getElementById('res-medal-desc').innerText = medalDesc;
+            document.getElementById('res-medal-tag').innerText = medalBadgeText;
+
+            renderGatekeeperAlertBox(isGatekeeperPassed, passGatekeeperCount);
+            generateRecommendations();
+            lucide.createIcons();
+        }
+
+        function renderGatekeeperAlertBox(isPassed, count) {
+            const box = document.getElementById('gatekeeper-alert-box');
+            if (isPassed) {
+                box.className = "p-4 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-900 flex items-start gap-3";
+                box.innerHTML = `
+                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-bold font-heading text-emerald-900">ผ่านเกณฑ์คัดกรองเบื้องต้นเรียบร้อยแล้ว (7/7 ข้อ)</h4>
+                        <p class="text-xs text-emerald-700 mt-0.5">ผลงานของท่านพร้อมสำหรับการประเมินคุณภาพในส่วนเล่มรายงานและนิทรรศการ</p>
+                    </div>
+                `;
+            } else {
+                box.className = "p-4 rounded-xl border bg-rose-50 border-rose-200 text-rose-900 flex items-start gap-3";
+                box.innerHTML = `
+                    <i data-lucide="alert-octagon" class="w-6 h-6 text-rose-600 shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-bold font-heading text-rose-900">ไม่ผ่านเกณฑ์คัดกรองเบื้องต้น (ผ่านเพียง ${count}/7 ข้อ)</h4>
+                        <p class="text-xs text-rose-700 mt-0.5">โปรดกลับไปตรวจสอบและทำเครื่องหมายในแถบ "1. ด่านคัดกรอง (Pass/Fail)" ให้ครบทุกข้อ ผลงานจึงจะผ่านเข้าสู่กระบวนการประเมินจริง</p>
+                    </div>
+                `;
+            }
+        }
+
+        function generateRecommendations() {
+            const container = document.getElementById('recommendations-list');
+            container.innerHTML = '';
+
+            let recs = [];
+
+            // Check Report Unchecked Items
+            reportCriteria.forEach(c => {
+                const checkedIndices = state.report[c.id] || [];
+                if (checkedIndices.length < 5) {
+                    const missingCount = 5 - checkedIndices.length;
+                    recs.push({
+                        category: "📄 เล่มรายงาน",
+                        title: c.title,
+                        missingCount: missingCount,
+                        tip: c.tip,
+                        weight: c.weight
+                    });
+                }
+            });
+
+            // Check Exhibition Unchecked Items
+            exhibitionCriteria.forEach(c => {
+                const checkedIndices = state.exhibition[c.id] || [];
+                if (checkedIndices.length < 5) {
+                    const missingCount = 5 - checkedIndices.length;
+                    recs.push({
+                        category: "🎪 นิทรรศการและการนำเสนอ",
+                        title: c.title,
+                        missingCount: missingCount,
+                        tip: c.tip,
+                        weight: c.weight
+                    });
+                }
+            });
+
+            if (recs.length === 0) {
+                container.innerHTML = `
+                    <div class="p-6 text-center bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-800 space-y-2">
+                        <i data-lucide="award" class="w-10 h-10 text-emerald-600 mx-auto"></i>
+                        <h4 class="font-bold font-heading text-lg">ยอดเยี่ยม! ผลงานของคุณมีองค์ประกอบครบถ้วน 100%</h4>
+                        <p class="text-xs text-emerald-700">ผลงานมีโอกาสได้รับรางวัลเหรียญทองชนะเลิศ ขอให้เตรียมตัวนำเสนอหน้างานอย่างมั่นใจ</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort recommendations by impact (missing points potential)
+            recs.sort((a, b) => (b.missingCount * b.weight) - (a.missingCount * a.weight));
+
+            recs.forEach((rec) => {
+                const potentialLostPoints = rec.missingCount * rec.weight;
+                const div = document.createElement('div');
+                div.className = "p-4 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3";
+                div.innerHTML = `
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">${rec.category}</span>
+                            <h4 class="font-bold text-slate-800 text-sm font-heading">${rec.title}</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed"><strong class="text-amber-700">คำแนะนำ:</strong> ${rec.tip}</p>
+                    </div>
+                    <div class="shrink-0 self-end sm:self-auto text-right">
+                        <span class="text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-1 rounded-lg inline-block">
+                            ขาดอีก ${rec.missingCount} ข้อ (-${potentialLostPoints} คะแนน)
+                        </span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('scoreBarChart').getContext('2d');
+            
+            const labels = [
+                '1. ความเป็นมา (5)',
+                '2. วัตถุประสงค์ (5)',
+                '3. ทฤษฎีแนวคิด (5)',
+                '4. ขั้นตอนสร้าง (10)',
+                '5. หาคุณภาพ (5)',
+                '6. ผลเกิดใช้ (10)',
+                '7. การเผยแพร่ (5)',
+                '8. ประโยชน์ (15)',
+                '9. หลักฐาน (15)',
+                '10. จัดนิทรรศการ (10)',
+                '11. การนำเสนอ (10)',
+                '12. ความสอดคล้อง (5)'
+            ];
+
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'คะแนนประเมินตนเอง',
+                            data: Array(12).fill(0),
+                            backgroundColor: 'rgba(79, 70, 229, 0.85)',
+                            borderColor: 'rgb(79, 70, 229)',
+                            borderWidth: 1,
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'คะแนนเต็ม',
+                            data: [5, 5, 5, 10, 5, 10, 5, 15, 15, 10, 10, 5],
+                            backgroundColor: 'rgba(226, 232, 240, 0.6)',
+                            borderColor: 'rgb(203, 213, 225)',
+                            borderWidth: 1,
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Sarabun',
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw} คะแนน`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 15,
+                            ticks: {
+                                stepSize: 3,
+                                font: {
+                                    family: 'Sarabun'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(241, 245, 249, 1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    family: 'Sarabun',
+                                    size: 10
+                                },
+                                maxRotation: 45,
+                                minRotation: 0
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+            updateChart();
+        }
+
+        function updateChart() {
+            if (!chartInstance) return;
+
+            const scores = [];
+
+            // Report 8 Criteria
+            reportCriteria.forEach(c => {
+                const count = (state.report[c.id] || []).length;
+                scores.push(count * c.weight);
+            });
+
+            // Exhibition 4 Criteria
+            exhibitionCriteria.forEach(c => {
+                const count = (state.exhibition[c.id] || []).length;
+                scores.push(count * c.weight);
+            });
+
+            chartInstance.data.datasets[0].data = scores;
+            chartInstance.update();
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem('cm1_innovation_assessment_2026', JSON.stringify(state));
+            } catch (e) {
+                console.error("Local storage save error", e);
+            }
+        }
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem('cm1_innovation_assessment_2026');
+                if (saved) {
+                    state = JSON.parse(saved);
+                } else {
+                    // Default initial empty state
+                    state = { gatekeeper: {}, report: {}, exhibition: {} };
+                }
+            } catch (e) {
+                state = { gatekeeper: {}, report: {}, exhibition: {} };
+            }
+        }
+
+        function resetForm() {
+            if (confirm("คุณต้องการล้างข้อมูลการประเมินตนเองทั้งหมดใช่หรือไม่?")) {
+                state = { gatekeeper: {}, report: {}, exhibition: {} };
+                saveState();
+                renderGatekeepers();
+                renderCriteria('report-criteria-container', reportCriteria, 'report');
+                renderCriteria('exhibition-criteria-container', exhibitionCriteria, 'exhibition');
+                calculateScores();
+                updateChart();
+                switchTab('gatekeeper');
+            }
+        }
+    </script>
+</body>
+</html>
