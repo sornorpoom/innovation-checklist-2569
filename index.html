@@ -1643,6 +1643,13 @@
                 <div class="checklist-text">ซ้อมเทคนิคการ "เชื่อมโยงสิ่งที่พูดกับหลักฐาน" เช่น ฝึกพูดอ้างอิงข้อมูลแล้วชี้ให้กรรมการดูเอกสาร ภาพกิจกรรม หรือตารางผลการประเมินที่จัดแสดงไว้ประกอบกัน</div>
               </div>
             </div>
+
+            <!-- Navigation Button to Part 2 -->
+            <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); text-align: right;">
+              <button class="btn btn-primary" onclick="goToTab('part2-tab', 2)" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; padding: 0.75rem 1.75rem;">
+                <span>ถัดไป: ประเมินส่วนที่ 2 เล่มรายงาน</span> <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1668,6 +1675,16 @@
               <!-- JS will load checklist dynamically -->
             </div>
 
+            <!-- Navigation Buttons: Back to Part 1 / Forward to Part 3 -->
+            <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <button class="btn btn-secondary" onclick="goToTab('part1-tab', 1)" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                <i class="fas fa-arrow-left"></i> <span>ย้อนกลับ: ส่วนที่ 1 ตรวจความพร้อม</span>
+              </button>
+              <button class="btn btn-primary" onclick="goToTab('part3-tab', 3)" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; padding: 0.75rem 1.75rem;">
+                <span>ถัดไป: ประเมินส่วนที่ 3 นิทรรศการ</span> <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
           </div>
         </div>
 
@@ -1690,6 +1707,16 @@
 
             <div id="part3-categories-container">
               <!-- JS will load part3 checklist dynamically -->
+            </div>
+
+            <!-- Navigation Buttons: Back to Part 2 / Export PDF -->
+            <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <button class="btn btn-secondary" onclick="goToTab('part2-tab', 2)" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                <i class="fas fa-arrow-left"></i> <span>ย้อนกลับ: ส่วนที่ 2 เล่มรายงาน</span>
+              </button>
+              <button class="btn btn-primary" onclick="openPdfConfirmModal()" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: none;">
+                <i class="fas fa-file-pdf"></i> <span>ส่งออกรายงานสรุปผล PDF</span>
+              </button>
             </div>
 
           </div>
@@ -2138,6 +2165,15 @@
         button.classList.remove('active');
       });
       btn.classList.add('active');
+    }
+
+    // Direct helper to navigate to specific tab by index and scroll top
+    function goToTab(tabId, index) {
+      const btns = document.querySelectorAll('.tab-btn');
+      if (btns[index]) {
+        switchTab(tabId, btns[index]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
     // Refresh UI page action
